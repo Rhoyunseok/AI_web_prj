@@ -1,3 +1,4 @@
 tutorial/tutorial/
 
 tutorial/tutorial_app/__pycache__
+tutorial/tutorial_app/migrations/__pycache__
