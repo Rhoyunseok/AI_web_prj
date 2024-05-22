@@ -1,8 +1,4 @@
 <!-- accounts/templates/signup.html -->
-
- <option value="blue">Blue</option>
-
-<!--{% block content %}-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +10,7 @@
     <div class="wrapper" style="text-align: center;">
         <h1>signup</h1>
         <form method="POST">
-            <!--{% csrf_token %}-->
+            {% csrf_token %}
             ID : <br>
             <input name="username" type="text">
             <br>
@@ -33,5 +29,4 @@
 </body>
 </html>
 
-<!--{% endblock %}-->
 
