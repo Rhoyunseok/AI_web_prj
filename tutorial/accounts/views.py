@@ -13,8 +13,8 @@ def signup(request):
                                             email=request.POST['email'],)
             auth.login(request, user)
             return redirect('/')
-        return render(request, 'signup.html')
-    return render(request, 'signup.html')
+        return render(request, 'accounts/signup.html', {'error': 'password must match.'})
+    return render(request, 'accounts/signup.html')
 
 def login(request):
     if request.method == 'POST':
@@ -25,13 +25,13 @@ def login(request):
             auth.login(request, user)
             return redirect('home') # return redirect('board')
         else:
-            return render(request, 'login.html', {'error': 'username or password is incorrect.'})
+            return render(request, 'accounts/login.html', {'error': 'username or password is incorrect.'})
     else:
-        return render(request, 'login.html')
+        return render(request, 'accounts/login.html')
 
 def logout(request):
     auth.logout(request)
     return redirect('home')
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'accounts/home.html')

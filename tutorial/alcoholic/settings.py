@@ -58,7 +58,7 @@ ROOT_URLCONF = 'alcoholic.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, "templates",], #templates folder is added to the DIRS list # new to login
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
