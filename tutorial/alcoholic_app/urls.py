@@ -1,6 +1,10 @@
+# alcoholic_app/urls.py
 from django.urls import path
-from . import views
+from .views import *
+
 urlpatterns = [
-    path('test', views.test, name='test'),
-    path('rsp', views.rsp, name='rsp'),
+    path('home/signup/', signup, name='signup'),
+    path('home/login/', login, name='login'),
+    path('home/logout/', logout, name='logout'),
+    path('home/', home, name='home'),
 ]

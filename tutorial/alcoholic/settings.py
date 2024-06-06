@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'alcoholic_app',
-    'accounts',
     'bootstrap4', # new to login
 ]
 
