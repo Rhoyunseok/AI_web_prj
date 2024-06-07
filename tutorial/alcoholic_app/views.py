@@ -13,8 +13,8 @@ def signup(request):
                                             email=request.POST['email'],)
             auth.login(request, user)
             return redirect('/')
-        return render(request, 'alcoholic_app/signup.html', {'error': 'password must match.'})
-    return render(request, 'alcoholic_app/signup.html')
+        return render(request, 'templates/signup.html', {'error': 'password must match.'})
+    return render(request, 'templates/signup.html')
 
 def login(request):
     if request.method == 'POST':
@@ -25,13 +25,13 @@ def login(request):
             auth.login(request, user)
             return redirect('home') # return redirect('board')
         else:
-            return render(request, 'alcoholic_app/login.html', {'error': 'username or password is incorrect.'})
+            return render(request, 'teamplates/login.html', {'error': 'username or password is incorrect.'})
     else:
-        return render(request, 'alcoholic_app/login.html')
+        return render(request, 'templates/login.html')
 
 def logout(request):
     auth.logout(request)
     return redirect('home')
 
 def home(request):
-    return render(request, 'alcoholic_app/home.html')
+    return render(request, 'templates/main.html')
