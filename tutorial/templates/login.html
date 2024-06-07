@@ -1,9 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-    <link href="./css/login.css" rel="stylesheet" />
-    <link href="../background.css" rel="stylesheet" />
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/background.css' %}" rel="stylesheet" />
     <title>login</title>
   </head>
   <body>
@@ -26,6 +26,9 @@
             <input name="password" type="password">
             <br><br>
             <input type="submit" class="btn btn-primary" value="Login">
+            <br><br>
+            <a href="{% url 'signup' %}">Sign Up Here</a>
+
           </form>
       </div>
       <nav class="nav">
