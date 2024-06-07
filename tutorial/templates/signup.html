@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/background.css'%}" rel="stylesheet" />
+    <title>login</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <div class="header">
+        <button class="button">?’¤ë¡œê??ê¸?</button>
+        <span class="title">?šŒ?›ê°??ž…</span>
+      </div>
+        <div class="wrapper">
+          <h1>?šŒ?›ê°??ž…</h1>
+          <form method="POST">
+            {% csrf_token %}
+            ?•„?´?”” :
+            <br>
+            <input name="username" type="text" placeholder="?•„?´?”” ?ž…? ¥" required>
+            <br>
+            ë¹„ë??ë²ˆí˜¸ :
+            <br>
+            <input name="password" type="password" placeholder="ë¹„ë??ë²ˆí˜¸ ?ž…? ¥" required>
+            <br>
+            ë¹„ë??ë²ˆí˜¸ ?™•?¸ :
+            <br>
+            <input name="password" type="password" placeholder="ë¹„ë??ë²ˆí˜¸ ?™•?¸" required>
+            <br><br>
+            <input type="submit" class="btn btn-primary" value="?™„ë£?">
+          </form>
+      </div>
+      <nav class="nav">
+        <ul class="navbar">
+          <li>?™ˆ</li>
+          <li>?ˆ ê°œíŒ…</li>
+          <li>ë§ˆì´?Ž˜?´ì§?</li>
+          <li>ë¡œê·¸?¸</li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
