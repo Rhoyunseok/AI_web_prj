@@ -38,3 +38,6 @@ def home(request):
 
 def list(request):
     return render(request, 'templates/list.html')
+
+def category_beer(request):
+    return render(request, 'templates/category_beer.html')
