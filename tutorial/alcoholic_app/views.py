@@ -12,7 +12,7 @@ def signup(request):
                                             password=request.POST['password1'],
                                             email=request.POST['email'],)
             auth.login(request, user)
-            return redirect('/')
+            return redirect('/main/home/')
         return render(request, 'templates/signup.html', {'error': 'password must match.'})
     return render(request, 'templates/signup.html')
 
