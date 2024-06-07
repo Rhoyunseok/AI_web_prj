@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.header {
+  width: 430px;
+  height: 70px;
+  background: rgba(210,180,140,0.21);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.button {
+  height: 30%;
+}
+.title {
+  color: rgba(0,0,0,1);
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+.wrapper {
+  width: 290px;
+  height: 300px;
+  background: rgb(249, 242, 233);
+  opacity: 1;
+  position: absolute;
+  top: 227px;
+  left: 68px;
+  overflow: hidden;
+  text-align: center;
+}
