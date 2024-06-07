@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="./css/login.css" rel="stylesheet" />
+    <link href="../background.css" rel="stylesheet" />
+    <title>login</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <div class="header">
+        <button class="button">뒤로가기</button>
+        <span class="title">로그인</span>
+      </div>
+        <div class="wrapper">
+          <h1>login</h1>
+          <form method="POST">
+            {% csrf_token %}
+            ID :
+            <br>
+            <input name="username" type="text">
+            <br>
+            pwd : 
+            <br>
+            <input name="password" type="password">
+            <br><br>
+            <input type="submit" class="btn btn-primary" value="Login">
+          </form>
+      </div>
+      <nav class="nav">
+        <ul class="navbar">
+          <li>홈</li>
+          <li>술개팅</li>
+          <li>마이페이지</li>
+          <li>로그인</li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
