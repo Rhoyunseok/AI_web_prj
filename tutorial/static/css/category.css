@@ -50,7 +50,7 @@ body {
 }
 .dropdown-separator {
   width: 100%;
-  border: 2px solid rgba(115,69,8,1);
+  border: 20px solid rgba(115,69,8,1);
 }
 .arrow {
   width: 0;
