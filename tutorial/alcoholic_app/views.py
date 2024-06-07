@@ -35,3 +35,6 @@ def logout(request):
 
 def home(request):
     return render(request, 'templates/main.html')
+
+def list(request):
+    return render(request, 'templates/list.html')
