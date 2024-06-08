@@ -256,6 +256,10 @@ body {
   top: 539px;
   left: 61px;
   overflow: hidden;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 .v4_30 {
   width: 41px;
@@ -269,6 +273,10 @@ body {
   top: 422px;
   left: 66px;
   overflow: hidden;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 .v8_15 {
   width: 55px;
