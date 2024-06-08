@@ -59,6 +59,7 @@ def csv_view(request):
     beer_description = None
     beer_img_url = None
     beer_country = None
+    beer_score = None
 
     file_path = 'alcoholic_app/data/beer.csv'
 
@@ -70,6 +71,7 @@ def csv_view(request):
                 beer_country = row[3]
                 beer_description = row[4]
                 beer_img_url = row[1]
+                beer_score = row[5]
                 break  # 필요한 데이터를 얻었으므로 루프를 종료
 
     specific_data = {
@@ -77,6 +79,7 @@ def csv_view(request):
         'beer_country': beer_country,
         'beer_description': beer_description,
         'beer_img_url': beer_img_url,
+        'beer_score': beer_score,
     }
     return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
 
@@ -95,6 +98,7 @@ def csv_view_pd(request, beer_index):
                 'beer_country': beer_data.iloc[4],  # 네 번째 열의 데이터를 'beer_country'로 사용
                 'beer_description': beer_data.iloc[5],  # 다섯 번째 열의 데이터를 'beer_description'으로 사용
                 'beer_img_url': beer_data.iloc[1],  # 두 번째 열의 데이터를 'beer_img_url'로 사용
+                'beer_score': beer_data.iloc[6],
             }
         }
     else:

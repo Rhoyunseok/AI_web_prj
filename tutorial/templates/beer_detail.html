@@ -12,10 +12,16 @@
   <div class="background"></div>
   <div class="content">
     <div class="page">
-      <p>Name : {{ specific_data.beer_name }}<br></p>
-      <p>Country: {{ specific_data.beer_country }}<br></p>
+      <p class="title">{{ specific_data.beer_name }}<br></p>
+      <div class="imgback">
+        <img src="{{ specific_data.beer_img_url }}" class="img" alt="beer_image" />
+      </div>
+      <div class="info">
+        <p>Category: </p>
+        <p>Country: {{ specific_data.beer_country }}<br></p>
+        <p>Score: {{ specific_data.beer_score }}</p>
+      </div>
       <p>Description: {{ specific_data.beer_description }}<br></p>
-      <img src="{{ specific_data.beer_img_url }}" alt="beer_image" />
       <nav class="nav">
         <ul class="navbar">
           <li>홈</li>
