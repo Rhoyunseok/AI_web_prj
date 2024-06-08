@@ -9,10 +9,6 @@
 }
 .content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 30%;
   margin: 0 auto;
   width: 430px;
   background: rgba(255,255,255,1);
