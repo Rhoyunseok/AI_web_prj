@@ -1,17 +1,17 @@
 beer_kor_name,image,beer_eng_name,class,country,description,score,aroma,appearance,flavor,mouthfeel,type
-1664블랑,https://user-images.githubusercontent.com/42470768/224222539-3cb6e019-0194-42ce-aa7e-75f078b67e4e.png,Kronenbourg 1664 Blanc,Witbier / Belgian White Ale,FR,"
+,1664블랑,https://user-images.githubusercontent.com/42470768/224222539-3cb6e019-0194-42ce-aa7e-75f078b67e4e.png,Kronenbourg 1664 Blanc,Witbier / Belgian White Ale,FR,"
 1664 화이트는 신선하고 과일 향이 나는 화이트 맥주입니다. 그 풍미와 디자인 때문에 밀 맥주의 세계에서 프랑스의 우아함과 맛을 구현합니다.
 
 
 
-정통, 접근하기 쉽고 약간 과일 향이 나며 감귤류, 레몬, 고수의 미묘한 향을 드러냅니다.",2.80040282,3.294811321,5.54245283,2.929245283,11.22877358,에일
-경복궁,https://user-images.githubusercontent.com/42470768/224222436-3c3d3753-3731-492c-8d93-4d78c603b360.png,Kabrew Gyeongbokgung Royal Pride IPA,ISA - Session IPA,KR,세션 IPA는 기존 시장의 세션 IPA와 달리 말린 과일 풍미가 가득한 특수 맥아로 만든 몰트와 홉의 균형이 강하고 개성이 강합니다.market.,3.285714286,3.428571429,6.571428571,2.857142857,13.14285714,IPA
-광화문,https://user-images.githubusercontent.com/42470768/224222442-fe0c6375-9e22-41d6-bb82-9554738727b3.png,ARK Seoulite Ale,Pale Ale - American (APA),KR,,3.01,3.5,5.9,3.2,12.1,에일
-구미호 IPA,https://user-images.githubusercontent.com/42470768/224222444-072dbff6-e645-438b-bc64-9ad7dd6f3ebe.png,Kabrew Kumiho India Pale Ale,IPA,KR,,2.85,3,6,3,10.5,IPA
-구미호 피치 에일,https://user-images.githubusercontent.com/42470768/224222447-1bbba2d5-ca40-44fe-8ad0-71b8919973d0.png,Kabrew Kumiho Peach Ale,Flavored - Fruit,KR,"
-밀을 베이스로 한 북미 스타일의 과일 맥주로, 복숭아 향이 가득하고 쓴맛이 없습니다.",2.82,2.5,5.75,2.25,11,과일
-구스 아일랜드 312,https://user-images.githubusercontent.com/42470768/224222449-178ef459-a257-4242-b613-538b1852958f.png,Goose Island 312 Urban Wheat Ale,Wheat Ale,US,"Like the digits suggest, it’s a beer that’s densely populated with flavor and loaded with character. We don’t filter it, so none of its life and soul is stripped away.  The first thing you notice is the hazy, cloudy appearance. That’s how you know it’s unfiltered. What hits you next is the spicy aroma of Cascade hops, followed by the crispy, fruity ale flavor delivered in a smooth, creamy body, the result of blending barley malt with torrified wheat. It’s not like any other Goose Island Beer, but no less that you’d expect.",2.831861702,3.064814815,5.703703704,2.905092593,11.44907407,밀맥주
-구스 아일랜드 IPA,https://user-images.githubusercontent.com/42470768/224222451-4f511809-9929-402b-a26e-85b2b7f5846a.png,Goose Island Goose IPA,IPA - English,US,"잉글리시 스타일 IPA인 이 맥주는 드라이한 몰트 미들과 롱 홉 피니시로 시작되는 과일 향으로 시작됩니다.
+,정통, 접근하기 쉽고 약간 과일 향이 나며 감귤류, 레몬, 고수의 미묘한 향을 드러냅니다.",2.80040282,3.294811321,5.54245283,2.929245283,11.22877358,에일
+,경복궁,https://user-images.githubusercontent.com/42470768/224222436-3c3d3753-3731-492c-8d93-4d78c603b360.png,Kabrew Gyeongbokgung Royal Pride IPA,ISA - Session IPA,KR,세션 IPA는 기존 시장의 세션 IPA와 달리 말린 과일 풍미가 가득한 특수 맥아로 만든 몰트와 홉의 균형이 강하고 개성이 강합니다.market.,3.285714286,3.428571429,6.571428571,2.857142857,13.14285714,IPA
+,광화문,https://user-images.githubusercontent.com/42470768/224222442-fe0c6375-9e22-41d6-bb82-9554738727b3.png,ARK Seoulite Ale,Pale Ale - American (APA),KR,,3.01,3.5,5.9,3.2,12.1,에일
+,구미호 IPA,https://user-images.githubusercontent.com/42470768/224222444-072dbff6-e645-438b-bc64-9ad7dd6f3ebe.png,Kabrew Kumiho India Pale Ale,IPA,KR,,2.85,3,6,3,10.5,IPA
+,구미호 피치 에일,https://user-images.githubusercontent.com/42470768/224222447-1bbba2d5-ca40-44fe-8ad0-71b8919973d0.png,Kabrew Kumiho Peach Ale,Flavored - Fruit,KR,"
+,밀을 베이스로 한 북미 스타일의 과일 맥주로, 복숭아 향이 가득하고 쓴맛이 없습니다.",2.82,2.5,5.75,2.25,11,과일
+,구스 아일랜드 312,https://user-images.githubusercontent.com/42470768/224222449-178ef459-a257-4242-b613-538b1852958f.png,Goose Island 312 Urban Wheat Ale,Wheat Ale,US,"Like the digits suggest, it’s a beer that’s densely populated with flavor and loaded with character. We don’t filter it, so none of its life and soul is stripped away.  The first thing you notice is the hazy, cloudy appearance. That’s how you know it’s unfiltered. What hits you next is the spicy aroma of Cascade hops, followed by the crispy, fruity ale flavor delivered in a smooth, creamy body, the result of blending barley malt with torrified wheat. It’s not like any other Goose Island Beer, but no less that you’d expect.",2.831861702,3.064814815,5.703703704,2.905092593,11.44907407,밀맥주
+,구스 아일랜드 IPA,https://user-images.githubusercontent.com/42470768/224222451-4f511809-9929-402b-a26e-85b2b7f5846a.png,Goose Island Goose IPA,IPA - English,US,"잉글리시 스타일 IPA인 이 맥주는 드라이한 몰트 미들과 롱 홉 피니시로 시작되는 과일 향으로 시작됩니다.
 
 우리의 인디아 페일 에일은 영국에서 인도로 배송된 에일을 긴 여정 동안 고유한 맛을 보존하기 위해 홉을 많이 사용했던 때를 회상합니다. 결과는 과일 향, 드라이한 몰트 미들, 그리고 긴 홉 피니시를 가진 홉 애호가의 꿈입니다.
 
@@ -20,8 +20,8 @@ beer_kor_name,image,beer_eng_name,class,country,description,score,aroma,appearan
 우리가 당신이 마시는 유일한 맥주일 필요는 없습니다.
 
 우리는 당신이 마시는 최고의 맥주를 원할 뿐입니다.",3.524749741,3.487373737,6.699494949,3.381313131,13.69949495,IPA
-구스 아일랜드 덕덕구스 ,https://user-images.githubusercontent.com/42470768/224222454-a249c529-15ad-45a7-969d-899456ed3cab.png,Goose Island Duck Duck Goose,Wheat Ale,US,,3.225,3.25,7,2.75,13,밀맥주
-구스 아일랜드 마틸다,https://user-images.githubusercontent.com/42470768/224222455-d8016fe4-59af-4dd1-9774-2612e4265f22.png,Goose Island Matilda,Belgian Ale - Dark / Amber,US,"
+,구스 아일랜드 덕덕구스 ,https://user-images.githubusercontent.com/42470768/224222454-a249c529-15ad-45a7-969d-899456ed3cab.png,Goose Island Duck Duck Goose,Wheat Ale,US,,3.225,3.25,7,2.75,13,밀맥주
+,구스 아일랜드 마틸다,https://user-images.githubusercontent.com/42470768/224222455-d8016fe4-59af-4dd1-9774-2612e4265f22.png,Goose Island Matilda,Belgian Ale - Dark / Amber,US,"
 
 
 
@@ -30,7 +30,7 @@ beer_kor_name,image,beer_eng_name,class,country,description,score,aroma,appearan
 
 
 마틸다는 과일 향과 매운 맛을 암시하는 희귀 효모로 만들어집니다. 풍부한 홉과 복합적인 몰티함이 균형을 이룹니다.",3.634734735,3.668171558,7.178329571,3.634311512,14.58465011,에일
-구스 아일랜드 버본 컨트리 스타우트,https://user-images.githubusercontent.com/42470768/224222457-d8ef20e7-a1f0-4ad4-9521-37049327bd69.png,Goose Island Bourbon County Stout,Stout - Imperial,US,"""원래 양조장에서 1000번째 배치를 위해 뭔가 특별한 것을 하고 싶었습니다. 구스 아일랜드에서 파티를 열 수도 있었습니다. 하지만 우리는 더 나은 것을 했습니다. 우리는 맥주를 양조했습니다. 정말 많은 양의 스타우트 배치-너무 큰 몰트가 나오고 있었습니다. 발효 후 우리는 스타우트를 숙성시키기 위해 약간의 버번 배럴을 가져왔습니다. 150일 후, 버번 카운티 스타우트가 탄생했습니다-블랙홀처럼 어둡고 밀도가 높은 액체에 두꺼운 거품 색상 버번 배럴의 코입니다. 코는 까맣게 탄 오크, 바닐라, 카르멜 및 스모크가 혼합되어 있습니다. 한 모금은 일반적인 맥주보다 더 풍미가 있습니다. 방에있는 모든 것을 압도합니다. 사람들은 훌륭한 시가 맥주라고 말하기까지했지만 나는 그것에 버틸 수 있는 시가를 아직 시도하지 않았습니다."" 브루마스터 그렉 홀;
+,구스 아일랜드 버본 컨트리 스타우트,https://user-images.githubusercontent.com/42470768/224222457-d8ef20e7-a1f0-4ad4-9521-37049327bd69.png,Goose Island Bourbon County Stout,Stout - Imperial,US,"""원래 양조장에서 1000번째 배치를 위해 뭔가 특별한 것을 하고 싶었습니다. 구스 아일랜드에서 파티를 열 수도 있었습니다. 하지만 우리는 더 나은 것을 했습니다. 우리는 맥주를 양조했습니다. 정말 많은 양의 스타우트 배치-너무 큰 몰트가 나오고 있었습니다. 발효 후 우리는 스타우트를 숙성시키기 위해 약간의 버번 배럴을 가져왔습니다. 150일 후, 버번 카운티 스타우트가 탄생했습니다-블랙홀처럼 어둡고 밀도가 높은 액체에 두꺼운 거품 색상 버번 배럴의 코입니다. 코는 까맣게 탄 오크, 바닐라, 카르멜 및 스모크가 혼합되어 있습니다. 한 모금은 일반적인 맥주보다 더 풍미가 있습니다. 방에있는 모든 것을 압도합니다. 사람들은 훌륭한 시가 맥주라고 말하기까지했지만 나는 그것에 버틸 수 있는 시가를 아직 시도하지 않았습니다."" 브루마스터 그렉 홀;
 
 
 
@@ -89,19 +89,19 @@ IBU의 60-High
 
 
 편집자 주: Baudoinia Fulton &amp; Wood Series 제품(FoBAB 2012의 Low Storage 항목)은 동일한 배럴에서 숙성된 Bourbon County Stout입니다. 가능한 산소 노출 변화를 제외하고는 곰팡이 자체에서 맥주에 뚜렷한 특성을 추가하지 않는 배럴에 증류기 곰팡이의 존재만으로 다른 조리법이나 배럴 유형을 제공하지 않기 때문에 변경되었습니다. Brewers Intent는 새로운 맥주로 간주하고 있음을 나타내지만, 이러한 산화량과 가능한 숙성 시간 차이를 제외하고는 진정한 구별이 맥주를 구분하지 않습니다. 본질적으로 우리가 과거에 항상 일반 버번 카운티 스타우트로 취급했던 단일 배럴 버번 카운티 버전입니다.",4.273194222,4.291764706,8.701176471,4.36,17.60470588,흑맥주
-구스 아일랜드 소피,https://user-images.githubusercontent.com/42470768/224222458-0c6bff39-b2df-45a0-b19b-044e7c7433ad.png,Goose Island Sofie,Saison / Farmhouse - Flavored,US,"Fermented with wild yeasts and aged in wine barrels with orange peel, Sofie is a tart, dry, sparkling ale. A subtle, spicy white pepper note, a hint of citrus from the orange peel and a creamy vanilla finish make Sofie an intriguing choice for Champagne drinkers and beer drinkers who are fond of Belgian Saisons.",3.729745989,3.643518519,7.363425926,3.678240741,14.92592593,에일
-구스 아일랜드 썸머 타임,https://user-images.githubusercontent.com/42470768/224222462-da6fa768-1ab0-4322-8bbb-121cbeacc6a1.png,Goose Island Summertime,Kolsch / Kolsch-Style,US,"Kolsch, the clean and refreshing beer style of Cologne, Germany, quenches summertime thirst. This pale golden ale with a lightly fruity aroma is cold-conditioned or lagered after its primary fermentation. More simply, our Summertime uses only the finest malts and German hops to create the perfect beer for hot Summer days and warm Summer nights.",3.062823276,3.174887892,6.00896861,3.152466368,12.14125561,기타
-구스 아일랜드 페페 네로,https://user-images.githubusercontent.com/42470768/224222465-3bc320ea-67b0-4608-beb6-3b99aa9cef12.png,Goose Island Pepe Nero,Saison / Farmhouse - Dark,US,A black rye saison that combines a roasted/smoky malt character in balance with a pepper spice from the yeast.  Finishes dry with a refreshing level of carbonation.,3.5315,3.783964365,6.971046771,3.476614699,14.26726058,흑맥주
-구스 아일랜드 혼커스 에일,https://user-images.githubusercontent.com/42470768/224222466-b4531b4c-f0e6-4125-ab97-eda73912b649.png,Goose Island Honkers Ale,Bitter - Ordinary / Best,US,"Inspired by visits to English country pubs, Honker’s Ale combines a fruity hop aroma with a rich malt middle to create a perfectly balanced beer. Immensely drinkable, Honker’s Ale is not only the beer you can trust but one you’ll look forward to time and again.",3.233333333,3.436363636,6.284090909,3.163636364,12.70681818,에일
-기네스 드라우트,https://user-images.githubusercontent.com/42470768/224222470-04866a3e-d429-4f0c-852b-3bbde090e614.png,Guinness Draught,Stout - Dry / Irish,IE,"Nitro-can, nitro-keg and nitro-bottle; Filtered
+,구스 아일랜드 소피,https://user-images.githubusercontent.com/42470768/224222458-0c6bff39-b2df-45a0-b19b-044e7c7433ad.png,Goose Island Sofie,Saison / Farmhouse - Flavored,US,"Fermented with wild yeasts and aged in wine barrels with orange peel, Sofie is a tart, dry, sparkling ale. A subtle, spicy white pepper note, a hint of citrus from the orange peel and a creamy vanilla finish make Sofie an intriguing choice for Champagne drinkers and beer drinkers who are fond of Belgian Saisons.",3.729745989,3.643518519,7.363425926,3.678240741,14.92592593,에일
+,구스 아일랜드 썸머 타임,https://user-images.githubusercontent.com/42470768/224222462-da6fa768-1ab0-4322-8bbb-121cbeacc6a1.png,Goose Island Summertime,Kolsch / Kolsch-Style,US,"Kolsch, the clean and refreshing beer style of Cologne, Germany, quenches summertime thirst. This pale golden ale with a lightly fruity aroma is cold-conditioned or lagered after its primary fermentation. More simply, our Summertime uses only the finest malts and German hops to create the perfect beer for hot Summer days and warm Summer nights.",3.062823276,3.174887892,6.00896861,3.152466368,12.14125561,기타
+,구스 아일랜드 페페 네로,https://user-images.githubusercontent.com/42470768/224222465-3bc320ea-67b0-4608-beb6-3b99aa9cef12.png,Goose Island Pepe Nero,Saison / Farmhouse - Dark,US,A black rye saison that combines a roasted/smoky malt character in balance with a pepper spice from the yeast.  Finishes dry with a refreshing level of carbonation.,3.5315,3.783964365,6.971046771,3.476614699,14.26726058,흑맥주
+,구스 아일랜드 혼커스 에일,https://user-images.githubusercontent.com/42470768/224222466-b4531b4c-f0e6-4125-ab97-eda73912b649.png,Goose Island Honkers Ale,Bitter - Ordinary / Best,US,"Inspired by visits to English country pubs, Honker’s Ale combines a fruity hop aroma with a rich malt middle to create a perfectly balanced beer. Immensely drinkable, Honker’s Ale is not only the beer you can trust but one you’ll look forward to time and again.",3.233333333,3.436363636,6.284090909,3.163636364,12.70681818,에일
+,기네스 드라우트,https://user-images.githubusercontent.com/42470768/224222470-04866a3e-d429-4f0c-852b-3bbde090e614.png,Guinness Draught,Stout - Dry / Irish,IE,"Nitro-can, nitro-keg and nitro-bottle; Filtered
 
 Usually called Draught; sometimes called Cold or Extra Cold - same beer, but served colder. Abv ranges from 4.1 to 4.3 % depending on where it was brewed - Guinness exports a hopped and concentrated wort to regional breweries who then brew it on site.
 
 Launched in 1961. 
 
 Ingredients: Pale ale malt, about 25 to 30% flaked barley, and about 10% roasted barley, with no other grains or sugars; several hop varieties, mainly Goldings (pellets and isomerized extract); a flocculent head-forming ale yeast.",3.462253963,4.292479109,6.635097493,3.470752089,13.79665738,흑맥주
-기네스 엑스트라 스타우트(북미),https://user-images.githubusercontent.com/42470768/224222474-e50c2869-e2ef-42ae-be39-6a1a16257bdd.png,Guinness Extra Stout (North America),Stout - Dry / Irish,CA,"Labatt’s brew a pale ale base to which is added the unfermented but hopped Guinness wort extract. Guinness Extra Stout is brewed in Canada by Labatt under license from Arthur Guinness Son &amp; Company.  Editor’s Note:  It looks like Moosehead is also brewing Guinness.  Bottles in the US are from there of late, but Canadian bottles are still showing Labatt.  04/23/06",3.35995785,3.941441441,6.407657658,3.382882883,13.18243243,흑맥주
-기네스 엑스트라 스타우트(세계),https://user-images.githubusercontent.com/42470768/224222474-e50c2869-e2ef-42ae-be39-6a1a16257bdd.png,Guinness Foreign Extra Stout,Stout - Extra / Foreign / Tropical,IE,"Foreign Extra Stout is a beer like no other.  The most full-flavoured of all.  Singular and striking.  Uniquely satisfying.  Brewed with extra hops and roasted barley for a natural bite.  Bitter and sweet.  Refreshingly crisp.  Always rewarding.  Pure beauty.  Pure GUINNESS.
+,기네스 엑스트라 스타우트(북미),https://user-images.githubusercontent.com/42470768/224222474-e50c2869-e2ef-42ae-be39-6a1a16257bdd.png,Guinness Extra Stout (North America),Stout - Dry / Irish,CA,"Labatt’s brew a pale ale base to which is added the unfermented but hopped Guinness wort extract. Guinness Extra Stout is brewed in Canada by Labatt under license from Arthur Guinness Son &amp; Company.  Editor’s Note:  It looks like Moosehead is also brewing Guinness.  Bottles in the US are from there of late, but Canadian bottles are still showing Labatt.  04/23/06",3.35995785,3.941441441,6.407657658,3.382882883,13.18243243,흑맥주
+,기네스 엑스트라 스타우트(세계),https://user-images.githubusercontent.com/42470768/224222474-e50c2869-e2ef-42ae-be39-6a1a16257bdd.png,Guinness Foreign Extra Stout,Stout - Extra / Foreign / Tropical,IE,"Foreign Extra Stout is a beer like no other.  The most full-flavoured of all.  Singular and striking.  Uniquely satisfying.  Brewed with extra hops and roasted barley for a natural bite.  Bitter and sweet.  Refreshingly crisp.  Always rewarding.  Pure beauty.  Pure GUINNESS.
 
 
 

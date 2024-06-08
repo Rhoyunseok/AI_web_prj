@@ -92,8 +92,8 @@ def csv_view_pd(request, beer_index):
         context = {
             'specific_data': {
                 'beer_name': beer_data.iloc[0],  # 첫 번째 열의 데이터를 'beer_name'으로 사용
-                'beer_country': beer_data.iloc[3],  # 네 번째 열의 데이터를 'beer_country'로 사용
-                'beer_description': beer_data.iloc[4],  # 다섯 번째 열의 데이터를 'beer_description'으로 사용
+                'beer_country': beer_data.iloc[4],  # 네 번째 열의 데이터를 'beer_country'로 사용
+                'beer_description': beer_data.iloc[5],  # 다섯 번째 열의 데이터를 'beer_description'으로 사용
                 'beer_img_url': beer_data.iloc[1],  # 두 번째 열의 데이터를 'beer_img_url'로 사용
             }
         }
