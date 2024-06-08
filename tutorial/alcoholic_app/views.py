@@ -84,7 +84,7 @@ def csv_view(request):
     return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
 
 def csv_view_pd(request, beer_index):
-    file_path = 'alcoholic_app/data/beer.csv'
+    file_path = 'alcoholic_app/data/beer2.csv'
     
     # pandas를 사용하여 CSV 파일을 읽습니다.
     df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0)
