@@ -1,6 +1,8 @@
+# test_app/urls.py
+
 from django.urls import path
-from . import views
+from .views import show_drink_images
+
 urlpatterns = [
-    path('test', views.test, name='test'),
-    path('rsp', views.rsp, name='rsp'),
+    path('drink_images/', show_drink_images, name='drink_images'),
 ]
