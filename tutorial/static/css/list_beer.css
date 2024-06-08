@@ -50,14 +50,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .listgroup {
-  width: 215px;
+  width: 185px;
   height: 150px;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  margin-bottom: 30px;
 }
 .listback {
   background: rgba(210,180,140,0.21);

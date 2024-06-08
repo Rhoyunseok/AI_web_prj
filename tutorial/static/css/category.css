@@ -8,22 +8,25 @@ body {
 .page {
   height: 900px;
 }
+.titleback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 430px;
+  height: 130px;
+}
 .title {
   color: black;
-  position: absolute;
-  top: 50px;
   font-family: Inter;
-  font-weight: Regular;
+  font-weight: normal;
   font-size: 24px;
   opacity: 1;
-  text-align: center;
+  margin: 0;
 }
 .list {
-  padding-top: 20px;
-  padding-bottom: 20px;
   color: black;
   font-family: Inter;
-  font-weight: Regular;
+  font-weight: normal;
   font-size: 16px;
   opacity: 1;
   text-align: left;
@@ -56,7 +59,7 @@ body {
 .dropdown-separator {
   margin-left: -20px;
   opacity: 1;
-  border: 2px solid rgba(115,69,8,1);
+  border: 1px solid rgba(115,69,8,1);
 }
 .arrow {
   width: 0;
