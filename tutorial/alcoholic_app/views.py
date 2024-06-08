@@ -1,4 +1,5 @@
 # accounts/views.py
+import csv
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
@@ -46,4 +47,32 @@ def beer_list(request):
     return render(request, 'templates/list_beer.html')
 
 def beer_detail(request):
-    return render(request, 'templates/beer_detail.html')
+    return render(request, 'templates/beer_detail.html') # ddddddd
+
+def csv_view(request):
+    data = []
+    beer_name = None
+    beer_description = None
+    beer_img_url = None
+    beer_country = None
+
+    file_path = 'alcoholic_app/data/beer.csv'
+
+    with open(file_path, newline='') as csvfile:
+        csvreader = csv.reader(csvfile)
+        for i, row in enumerate(csvreader):
+            if i == 2:  # 3번째 행 (0-based 인덱스)
+                beer_name = row[0]
+                beer_country = row[3]
+                beer_description = row[4]
+                beer_img_url = row[1]
+                break  # 필요한 데이터를 얻었으므로 루프를 종료
+
+    specific_data = {
+        'beer_name': beer_name,
+        'beer_country': beer_country,
+        'beer_description': beer_description,
+        'beer_img_url': beer_img_url,
+    }
+
+    return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
