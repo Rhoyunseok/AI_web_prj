@@ -5,6 +5,9 @@ body {
   font-size: 14px;
   flex-direction: column;
 }
+.page {
+  height: 900px;
+}
 .title {
   color: black;
   position: absolute;

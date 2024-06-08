@@ -4,6 +4,9 @@
 body {
   font-size: 14px;
 }
+.page {
+  height: 900px;
+}
 .v14_2 {
   width: 430px;
   height: 82px;

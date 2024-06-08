@@ -4,6 +4,9 @@
 body {
   font-size: 14px;
 }
+.page {
+  height: 900px;
+}
 .header {
   width: 430px;
   height: 70px;
