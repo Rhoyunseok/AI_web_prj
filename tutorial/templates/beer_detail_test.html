@@ -12,10 +12,12 @@
   <div class="background"></div>
   <div class="content">
     <div class="page">
-      <p>Name : {{ specific_data.beer_name }}<br></p>
+      <p class="title">Name : {{ specific_data.beer_name }}<br></p>
       <p>Country: {{ specific_data.beer_country }}<br></p>
       <p>Description: {{ specific_data.beer_description }}<br></p>
-      <img src="{{ specific_data.beer_img_url }}" alt="beer_image" />
+      {% if specific_data.beer_img_url %}
+      <img src="{{ specific_data.beer_img_url }}" class="image" alt="beer_image" />
+      {% endif %}
       <nav class="nav">
         <ul class="navbar">
           <li>홈</li>

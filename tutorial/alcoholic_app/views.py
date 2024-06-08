@@ -102,7 +102,7 @@ def csv_view_pd(request, beer_index):
             'error': '해당 인덱스의 맥주를 찾을 수 없습니다.'
         }
     
-    return render(request, 'templates/rhotest.html', context)
+    return render(request, 'templates/beer_detail.html', context)
 
 
     

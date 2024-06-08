@@ -10,6 +10,6 @@ urlpatterns = [
     path('home/list/', list, name='list'),
     path('home/beer/', category_beer, name='category_beer'),
     path('home/beer/list', beer_list, name='beer_list'),
-    path('home/detail', views.csv_view, name='csv_view'), #dddd
-    path('home/beer/list/<int:beer_index>', views.csv_view_pd, name='test'),
+    path('home/beer/list/<int:beer_index>', views.csv_view_pd, name='csv_view'), #dddd
+    # path('home/beer/list/<int:beer_index>', views.csv_view_pd, name='test'),
 ]
