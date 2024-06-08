@@ -80,20 +80,22 @@ def csv_view(request):
     }
     return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
 
-def csv_view_pd(request):
+def csv_view_pd(request, beer_index):
     file_path = 'alcoholic_app/data/beer.csv'
     
     # pandas를 사용하여 CSV 파일을 읽습니다.
-    df = pd.read_csv('alcoholic_app/data/beer.csv')
+    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0)
     
     # 특정 맥주 인덱스의 데이터를 가져옵니다.
     if beer_index < len(df):
         beer_data = df.iloc[beer_index]
         context = {
-            'beer_name': beer_data['row[0]'],
-            'beer_country': beer_data['row[3]'],
-            'beer_description': beer_data['row[4]'],
-            'beer_img_url': beer_data['row[1]'],
+            'specific_data': {
+                'beer_name': beer_data.iloc[0],  # 첫 번째 열의 데이터를 'beer_name'으로 사용
+                'beer_country': beer_data.iloc[3],  # 네 번째 열의 데이터를 'beer_country'로 사용
+                'beer_description': beer_data.iloc[4],  # 다섯 번째 열의 데이터를 'beer_description'으로 사용
+                'beer_img_url': beer_data.iloc[1],  # 두 번째 열의 데이터를 'beer_img_url'로 사용
+            }
         }
     else:
         context = {
