@@ -85,6 +85,8 @@ def csv_view(request):
     }
     return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
 
+# df = pd.read_csv('alcoholic_app/data/beer2.csv', encoding='euc-kr', index_col=0)
+
 def csv_view_pd(request, beer_index):
     file_path = 'alcoholic_app/data/beer2.csv'
     
@@ -110,6 +112,15 @@ def csv_view_pd(request, beer_index):
         }
     
     return render(request, 'templates/beer_detail.html', context)
+
+# def beer_list_by_type(request, beer_type):
+#     filtered_df = df[df['라거'] == beer_type]
+#     beer_list = filtered_df.to_dict(orient='records')
+#     context = {
+#         'beer_type': beer_type,
+#         'beer_list': beer_list
+#     }
+#     return render(request, 'beer_list_by_type.html', context)
 
 
     
