@@ -19,6 +19,8 @@ body {
   text-align: center;
 }
 .list {
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: black;
   font-family: Inter;
   font-weight: Regular;
@@ -31,7 +33,7 @@ body {
 .line {
   width: 100%;
   opacity: 1;
-  border: 2px solid rgba(115,69,8,1);
+  border: 1px solid rgba(115,69,8,1);
 }
 .column {
   display: flex;
