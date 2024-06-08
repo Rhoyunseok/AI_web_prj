@@ -17,11 +17,11 @@
         <img src="{{ specific_data.beer_img_url }}" class="img" alt="beer_image" />
       </div>
       <div class="info">
-        <p>Category: </p>
+        <p>Category: 맥주 > {{ specific_data.beer_category }} </p>
         <p>Country: {{ specific_data.beer_country }}<br></p>
         <p>Score: {{ specific_data.beer_score }}</p>
       </div>
-      <p>Description: {{ specific_data.beer_description }}<br></p>
+      <p class="descrip">Description: {{ specific_data.beer_description }}<br></p>
       <nav class="nav">
         <ul class="navbar">
           <li>홈</li>
