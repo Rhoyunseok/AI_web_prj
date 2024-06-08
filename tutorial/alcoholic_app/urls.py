@@ -10,4 +10,5 @@ urlpatterns = [
     path('home/list/', list, name='list'),
     path('home/beer/', category_beer, name='category_beer'),
     path('home/beer/list', beer_list, name='beer_list'),
+    path('home/detail', beer_detail, name='beer_detail'),
 ]

@@ -44,3 +44,6 @@ def category_beer(request):
 
 def beer_list(request):
     return render(request, 'templates/list_beer.html')
+
+def beer_detail(request):
+    return render(request, 'templates/beer_detail.html')
