@@ -83,6 +83,8 @@ def csv_view(request):
     }
     return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
 
+# df = pd.read_csv('alcoholic_app/data/beer2.csv', encoding='euc-kr', index_col=0)
+
 def csv_view_pd(request, beer_index):
     file_path = 'alcoholic_app/data/beer2.csv'
     
@@ -99,6 +101,7 @@ def csv_view_pd(request, beer_index):
                 'beer_description': beer_data.iloc[5],  # 다섯 번째 열의 데이터를 'beer_description'으로 사용
                 'beer_img_url': beer_data.iloc[1],  # 두 번째 열의 데이터를 'beer_img_url'로 사용
                 'beer_score': beer_data.iloc[6],
+                'beer_type': beer_data.iloc[11], # 열의 데이터를 'beer_type'으로 사용
             }
         }
     else:
@@ -107,6 +110,15 @@ def csv_view_pd(request, beer_index):
         }
     
     return render(request, 'templates/beer_detail.html', context)
+
+# def beer_list_by_type(request, beer_type):
+#     filtered_df = df[df['라거'] == beer_type]
+#     beer_list = filtered_df.to_dict(orient='records')
+#     context = {
+#         'beer_type': beer_type,
+#         'beer_list': beer_list
+#     }
+#     return render(request, 'beer_list_by_type.html', context)
 
 
     

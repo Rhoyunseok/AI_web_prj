@@ -14,5 +14,6 @@ urlpatterns = [
     # path('home/beer/list/<int:beer_index>', views.csv_view_pd, name='test'),
 
 
-   path('home/whiskey_detail',whiskey_detail, name='whiskey_detail'),  #위스키 페이지
+#    path('home/whiskey_detail',whiskey_detail, name='whiskey_detail'),  #위스키 페이지 주석
+
 ]
