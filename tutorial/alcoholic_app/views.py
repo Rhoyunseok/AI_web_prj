@@ -1,5 +1,6 @@
 # accounts/views.py
 import csv
+import pandas as pd
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
@@ -49,6 +50,9 @@ def beer_list(request):
 def beer_detail(request):
     return render(request, 'templates/beer_detail.html') # ddddddd
 
+def test(request):
+    return render(request, 'templates/rhotest.html') #dddd
+
 def csv_view(request):
     data = []
     beer_name = None
@@ -74,5 +78,29 @@ def csv_view(request):
         'beer_description': beer_description,
         'beer_img_url': beer_img_url,
     }
-
     return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
+
+def csv_view_pd(request):
+    file_path = 'alcoholic_app/data/beer.csv'
+    
+    # pandas를 사용하여 CSV 파일을 읽습니다.
+    df = pd.read_csv('alcoholic_app/data/beer.csv')
+    
+    # 특정 맥주 인덱스의 데이터를 가져옵니다.
+    if beer_index < len(df):
+        beer_data = df.iloc[beer_index]
+        context = {
+            'beer_name': beer_data['row[0]'],
+            'beer_country': beer_data['row[3]'],
+            'beer_description': beer_data['row[4]'],
+            'beer_img_url': beer_data['row[1]'],
+        }
+    else:
+        context = {
+            'error': '해당 인덱스의 맥주를 찾을 수 없습니다.'
+        }
+    
+    return render(request, 'templates/rhotest.html', context)
+
+
+    
