@@ -113,14 +113,30 @@ def csv_view_pd(request, beer_index):
     
     return render(request, 'templates/beer_detail.html', context)
 
-# def beer_list_by_type(request, beer_type):
-#     filtered_df = df[df['라거'] == beer_type]
-#     beer_list = filtered_df.to_dict(orient='records')
-#     context = {
-#         'beer_type': beer_type,
-#         'beer_list': beer_list
-#     }
-#     return render(request, 'beer_list_by_type.html', context)
 
+#plz plz plz
+def beers_by_category(request, category):
+    file_path = 'alcoholic_app/data/beer2.csv'
+    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+    filtered_df = df[df.iloc[:, 11] == category]  # iloc[11] 열에서 선택한 카테고리로 필터링
+    beer_list = filtered_df.sort_values(by=df.columns[0]).to_dict(orient='records')  # 첫 번째 열로 정렬
 
+    for beer in beer_list:
+        beer['beer_name'] = beer[df.columns[0]]
+        beer['beer_img_url'] = beer[df.columns[1]]
+    context = {
+        'category': category,
+        'beer_list': beer_list
+    }
+    return render(request, 'templates/beers_by_category.html', context)
+
+def beer_list(request):
+    file_path = 'alcoholic_app/data/beer2.csv'
+    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+    categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/beer_list_test.html', {'categories': categories})
+
+# def beer_list(request):
+#     # categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
+#     return render(request, 'beer_list.html', {'categories': categories})
     

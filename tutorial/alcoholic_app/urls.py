@@ -12,8 +12,9 @@ urlpatterns = [
     path('home/beer/list', beer_list, name='beer_list'),
     path('home/beer/list/<int:beer_index>', views.csv_view_pd, name='csv_view'), #dddd
     # path('home/beer/list/<int:beer_index>', views.csv_view_pd, name='test'),
+    path('beers/category/<str:category>/', views.beers_by_category, name='beers_by_category'),
+    path('beers/', views.beer_list, name='beer_list'),
 
-
-#    path('home/whiskey_detail',whiskey_detail, name='whiskey_detail'),  #위스키 페이지 주석
+    # path('home/whiskey_detail',whiskey_detail, name='whiskey_detail'),  #위스키 페이지 주석
 
 ]

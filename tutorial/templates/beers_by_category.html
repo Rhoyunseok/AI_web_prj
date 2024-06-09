@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beers of Category: {{ category }}</title>
+</head>
+<body>
+    <h1>Beers of Category: {{ category }}</h1>
+    <ul>
+        {% for beer in beer_list %}
+        <li>
+            <img src="{{ beer.beer_img_url }}" alt="{{ beer.beer_name }}" width="100">
+            <strong>{{ beer.beer_name }}</strong>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'beer_list' %}">Back to Categories</a>
+</body>
+</html>
