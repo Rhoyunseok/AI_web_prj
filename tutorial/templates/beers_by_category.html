@@ -7,7 +7,7 @@
 <body>
     <h1>Beers of Category: {{ category }}</h1>
     <ul>
-        {% for beer in beer_list %}
+        {% for beer in page_obj %}
         <li>
             <img src="{{ beer.beer_img_url }}" alt="{{ beer.beer_name }}" width="100">
             <strong>{{ beer.beer_name }}</strong>
@@ -15,5 +15,22 @@
         {% endfor %}
     </ul>
     
+    <!-- Pagination links -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+
 </body>
 </html>
