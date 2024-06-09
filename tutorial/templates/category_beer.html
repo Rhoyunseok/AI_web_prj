@@ -17,23 +17,10 @@
           <div class="line"></div>
           <p class="list">전체 보기</p>
           <div class="line"></div>
-          <p class="list" onclick="toggleDropdown('lagerDropdown')">
-            라거
-            <span class="arrow"></span>
-          </p>
-          <div class="dropdown" id="lagerDropdown">
-            <div class="dropdown-separator"></div>
-            <p class="list"><a href="{% url 'beer_list' %}">라거</a></p>          
-            <p class="list">페일 라거</p>
-            <p class="list">헬레스 라거</p>
-            <p class="list">엠버 라거</p>
-          </div>
+          {% for category in categories %}
+          <p class="list"><a href="{% url 'beer_list' category %}">{{ category }}</a></p>
           <div class="line"></div>
-          <p class="list">위트에일</p>
-          <div class="line"></div>
-          <p class="list">에일</p>
-          <div class="line"></div>
-        </div>
+          {% endfor %}
       <nav class="nav">
         <ul class="navbar">
           <li>홈</li>
