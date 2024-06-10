@@ -11,7 +11,7 @@
     <div class="content">
       <div class="page">
         <div class="titleback">
-          <span class="title">커스텀 칵테일</span>
+          <span class="title">리큐르</span>
         </div>
         <div class="subtitleback">
           <span class="subtitle">라거</span>
@@ -20,10 +20,10 @@
           <span class="subtitle">라거</span>
         </div>
         <div class="item">
-          {% for custom in page_obj %}
+          {% for liquor in page_obj %}
           <div class="listgroup">
-            <div class="listback"><img src="{{ custom.custom_img_url }}" class="img" alt="{{ custom.custom_name }}" width="100"></div>
-            <span class="list"><a href="{% url 'csv_view_custom' custom.custom_index %}">{{ custom.custom_name }}</a></span>
+            <div class="listback"><img src="{% static 'images/peachLiquor.png' %}" class="img" alt="{{ liquor.liquor_name }}" width="100"></div>
+            <span class="list"><a href="{% url 'csv_view_liquor' liquor.liquor_index %}">{{ liquor.liquor_name }}</a></span>
           </div>
           {% if forloop.counter|divisibleby:2 %}
         </div>
