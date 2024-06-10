@@ -169,4 +169,3 @@ def beer_list(request, category):
 # def beer_list(request):
 #     # categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
 #     return render(request, 'beer_list.html', {'categories': categories})
-    
