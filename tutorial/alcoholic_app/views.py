@@ -49,9 +49,10 @@ def detail_beer(request):
 
 def csv_view_beer(request, beer_index):
     file_path = 'alcoholic_app/data/beer2.csv'
+    encoding = detect_encoding(file_path)
     
     # pandas를 사용하여 CSV 파일을 읽습니다.
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
     
     # 특정 맥주 인덱스의 데이터를 가져옵니다.
     if beer_index < len(df):
@@ -76,9 +77,10 @@ def csv_view_beer(request, beer_index):
 
 def csv_view_cocktail(request, cocktail_index):
     file_path = 'alcoholic_app/data/cocktail.csv'
-    
+    encoding = detect_encoding(file_path)
+
     # pandas를 사용하여 CSV 파일을 읽습니다.
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
     
     # 특정 맥주 인덱스의 데이터를 가져옵니다.
     if cocktail_index < len(df):
@@ -90,12 +92,7 @@ def csv_view_cocktail(request, cocktail_index):
                 'cocktail_category': cocktail_data.iloc[5],
                 'cocktail_index': cocktail_data.iloc[24],
                 'cocktail_alcohol': cocktail_data.iloc[0],
-                'cocktail_making': cocktail_data.iloc[4],
-                'cocktail_base_amount': cocktail_data.iloc[6],
-                'cocktail_liquor': cocktail_data.iloc[7],
-                'cocktail_liquor_amout': cocktail_data.iloc[8],
                 'cocktail_taste': cocktail_data.iloc[16],
-                'cocktail_type_glass': cocktail_data.iloc[17],
             }
         }
     else:
@@ -105,22 +102,10 @@ def csv_view_cocktail(request, cocktail_index):
     
     return render(request, 'templates/detail_cocktail.html', context)
 
-
-def category_beer(request):
-    file_path = 'alcoholic_app/data/beer2.csv'
-    encoding = detect_encoding(file_path)
-    df = pd.read_csv(file_path, encoding= encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
-
-    categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
-    return render(request, 'templates/category_beer.html', {'categories': categories})
-
-
-
-
-
 def list_beer(request, category):
     file_path = 'alcoholic_app/data/beer2.csv'
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col=0)
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
 
     filtered_df = df[df.iloc[:, 11] == category].sort_values(by=df.columns[0])
     beer_list = filtered_df.to_dict(orient='records')
@@ -142,11 +127,10 @@ def list_beer(request, category):
     return render(request, 'templates/list_beer.html', context)
 
 
-
-
 def list_cocktail(request, category):
     file_path = 'alcoholic_app/data/cocktail.csv'
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col=0)
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
 
     filtered_df = df[df.iloc[:, 5] == category].sort_values(by=df.columns[0])
     cocktail_list = filtered_df.to_dict(orient='records')
@@ -167,10 +151,13 @@ def list_cocktail(request, category):
     return render(request, 'templates/list_cocktail.html', context)
 
 
-def detect_encoding(file_path):
-    with open(file_path, 'rb') as f:
-        result = chardet.detect(f.read())
-    return result['encoding']
+def category_beer(request):
+    file_path = 'alcoholic_app/data/beer2.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding= encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_beer.html', {'categories': categories})
 
 def category_cocktail(request):
     file_path = 'alcoholic_app/data/cocktail.csv'
@@ -180,7 +167,10 @@ def category_cocktail(request):
     categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
     return render(request, 'templates/category_cocktail.html', {'categories': categories})
 
-
+def detect_encoding(file_path):
+    with open(file_path, 'rb') as f:
+        result = chardet.detect(f.read())
+    return result['encoding']
 
 # 검색 기능
 

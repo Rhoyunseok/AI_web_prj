@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="{% static 'css/detail_beer.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/detail.css' %}" rel="stylesheet" />
   <link href="{% static 'css/background.css' %}" rel="stylesheet" />
   <title>Beer</title>
 </head>
@@ -21,7 +21,6 @@
         <p>Category: 맥주 > {{ specific_data.beer_category }} </p>
         <p>Country: {{ specific_data.beer_country }}<br></p>
         <p>Score: {{ specific_data.beer_score }}</p>
-        <p>category: {{specific_data.beer_category}}</p>
       </div>
       <p class="descrip">Description: {{ specific_data.beer_description }}<br></p>
       <nav class="nav">
