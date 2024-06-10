@@ -6,21 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{% static 'css/detail.css' %}" rel="stylesheet" />
   <link href="{% static 'css/background.css' %}" rel="stylesheet" />
-  <title>Custom</title>
+  <title>Wine</title>
 </head>
 <body>
   <div class="background"></div>
   <div class="content">
     <div class="page">
-      <p class="title">{{ specific_data.custom_name }}<br></p>
+      <p class="title">{{ specific_data.wine_name }}<br></p>
       <div class="imgback">
-        <img src="{{ specific_data.custom_img_url }}" class="img" alt="custom_image" />
+        <img src="{{ specific_data.wine_img_url }}" class="img" alt="wine_image" />
       </div>
       <p class="heart">하트 숫자</p>
       <div class="info">
-        <p>Category: 커스텀 칵테일 > {{ specific_data.custom_category }} </p>
-        <p>Alcohol: {{ specific_data.custom_alcohol }}</p>
-        <p>Taste: {{ specific_data.custom_taste }}</p>
+        <p>Category: 와인 > {{ specific_data.wine_category }} </p>
       </div>
       <nav class="nav">
         <ul class="navbar">

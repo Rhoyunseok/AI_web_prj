@@ -43,9 +43,6 @@ def logout(request):
 def home(request):
     return render(request, 'templates/main.html')
 
-def detail_beer(request):
-    return render(request, 'templates/detail_beer.html') # ddddddd
-
 def detect_encoding(file_path):
     with open(file_path, 'rb') as f:
         result = chardet.detect(f.read())
@@ -131,6 +128,31 @@ def csv_view_custom(request, custom_index):
     
     return render(request, 'templates/detail_custom.html', context)
 
+def csv_view_wine(request, wine_index):
+    file_path = 'alcoholic_app/data/df_wine.csv'
+    encoding = detect_encoding(file_path)
+    
+    # pandas를 사용하여 CSV 파일을 읽습니다.
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
+    
+    # 특정 맥주 인덱스의 데이터를 가져옵니다.
+    if wine_index < len(df):
+        wine_data = df.iloc[wine_index]
+        context = {
+            'specific_data': {
+                'wine_name': wine_data.iloc[0],
+                'wine_img_url': wine_data.iloc[1],
+                'wine_index': wine_data.iloc[19],
+                'wine-category': wine_data.iloc[6],
+            }
+        }
+    else:
+        context = {
+            'error': '해당 인덱스의 맥주를 찾을 수 없습니다.'
+        }
+    
+    return render(request, 'templates/detail_wine.html', context)
+
 
 def category_beer(request):
     file_path = 'alcoholic_app/data/beer2.csv'
@@ -153,8 +175,16 @@ def category_custom(request):
     encoding = detect_encoding(file_path)
     df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
 
-    categories = df.iloc[:, 9].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
+    categories = df.iloc[:, 9].unique()  # iloc[9] 열의 유일한 카테고리 목록 가져오기
     return render(request, 'templates/category_custom.html', {'categories': categories})
+
+def category_wine(request):
+    file_path = 'alcoholic_app/data/df_wine.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 6].unique()  # iloc[6] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_wine.html', {'categories': categories})
 
 
 def list_beer(request, category):
@@ -213,8 +243,8 @@ def list_custom(request, category):
     custom_list = filtered_df.to_dict(orient='records')
 
     for i, custom in enumerate(custom_list):
-        custom['custom_name'] = custom[df.columns[0]]  
-        custom['custom_img_url'] = custom[df.columns[1]] 
+        custom['custom_name'] = custom[df.columns[0]]
+        custom['custom_img_url'] = custom[df.columns[1]]
         custom['custom_index'] = custom[df.columns[9]]
         
 
@@ -227,6 +257,30 @@ def list_custom(request, category):
         'page_obj': page_obj
     }
     return render(request, 'templates/list_custom.html', context)
+
+def list_wine(request, category):
+    file_path = 'alcoholic_app/data/df_wine.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
+
+    filtered_df = df[df.iloc[:, 6] == category].sort_values(by=df.columns[0])
+    wine_list = filtered_df.to_dict(orient='records')
+
+    for i, wine in enumerate(wine_list):
+        wine['wine_name'] = wine[df.columns[0]]
+        wine['wine_img_url'] = wine[df.columns[1]]
+        wine['wine_index'] = wine[df.columns[19]]
+        
+
+    paginator = Paginator(wine_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'category': category,
+        'page_obj': page_obj
+    }
+    return render(request, 'templates/list_wine.html', context)
 
 
 # 검색 기능

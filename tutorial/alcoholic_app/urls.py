@@ -18,5 +18,8 @@ urlpatterns = [
     path('home/custom/', category_custom, name='category_custom'),
     path('home/custom/list/<str:category>/', list_custom, name='list_custom'),
     path('home/custom/list/<int:custom_index>', views.csv_view_custom, name='csv_view_custom'),
+    path('home/wine/', category_wine, name='category_wine'),
+    path('home/wine/list/<str:category>/', list_wine, name='list_wine'),
+    path('home/wine/list/<int:custom_index>', views.csv_view_wine, name='csv_view_wine'),
     path('search/', search_view, name='search_view'),
 ]
