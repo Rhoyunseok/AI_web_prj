@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'alcoholic_app',
     'bootstrap4', # new to login
+    #'test_app'swap기능에 좋아요 싫어요 저장
 ]
 
 MIDDLEWARE = [

@@ -410,3 +410,6 @@ def search_view(request):
     return render(request, 'templates/search.html', {'query': query, 'results': results}) # 검색 결과를 템플릿에 전달
 
 # 검색 기능 끝
+
+def register(request):
+    return render(request, 'templates/register.html') #테스트용 ㅋ
