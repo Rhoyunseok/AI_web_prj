@@ -3,7 +3,16 @@
   }
 
 .page{
-    height: 100%;
+border: 0.5px solid rgba(115,69,8,1);
+
+  width: 430px;
+  height: 1000px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
 }
 
 
@@ -186,8 +195,8 @@
     position: absolute;
     top: 521px;
     left: 68px;
-    border: 1px solid rgba(0,0,0,1);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgb(115, 69, 8);
+/*     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   }
 
 
