@@ -41,17 +41,11 @@ def logout(request):
 def home(request):
     return render(request, 'templates/main.html')
 
-def list(request):
-    return render(request, 'templates/list.html')
-
-def beer_detail(request):
-    return render(request, 'templates/beer_detail.html') # ddddddd
-
-def test(request):
-    return render(request, 'templates/rhotest.html') #dddd
+def detail_beer(request):
+    return render(request, 'templates/detail_beer.html') # ddddddd
  
 
-def csv_view_pd(request, beer_index):
+def csv_view_beer(request, beer_index):
     file_path = 'alcoholic_app/data/beer2.csv'
     
     # pandas를 사용하여 CSV 파일을 읽습니다.
@@ -76,7 +70,7 @@ def csv_view_pd(request, beer_index):
             'error': '해당 인덱스의 맥주를 찾을 수 없습니다.'
         }
     
-    return render(request, 'templates/beer_detail.html', context)
+    return render(request, 'templates/detail_beer.html', context)
 
 def csv_view_cocktail(request, cocktail_index):
     file_path = 'alcoholic_app/data/cocktail.csv'
@@ -107,7 +101,7 @@ def csv_view_cocktail(request, cocktail_index):
             'error': '해당 인덱스의 칵테일을 찾을 수 없습니다.'
         }
     
-    return render(request, 'templates/cocktail_detail.html', context)
+    return render(request, 'templates/detail_cocktail.html', context)
 
 
 def category_beer(request):
@@ -115,10 +109,18 @@ def category_beer(request):
     df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
 
     categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
-    return render(request, 'templates/beer_list_test.html', {'categories': categories})
+    return render(request, 'templates/category_beer.html', {'categories': categories})
+
+def category_cocktail(request):
+    file_path = 'alcoholic_app/data/cocktail.csv'
+    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_cocktail.html', {'categories': categories})
 
 
-def beer_list(request, category):
+
+def list_beer(request, category):
     file_path = 'alcoholic_app/data/beer2.csv'
     df = pd.read_csv(file_path, encoding='euc-kr', index_col=0)
 
@@ -139,18 +141,12 @@ def beer_list(request, category):
         'category': category,
         'page_obj': page_obj
     }
-    return render(request, 'templates/beers_by_category.html', context)
+    return render(request, 'templates/list_beer.html', context)
 
 
-def category_cocktail(request):
-    file_path = 'alcoholic_app/data/cocktail.csv'
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
-
-    categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
-    return render(request, 'templates/cocktail_list_test.html', {'categories': categories})
 
 
-def cocktail_list(request, category):
+def list_cocktail(request, category):
     file_path = 'alcoholic_app/data/cocktail.csv'
     df = pd.read_csv(file_path, encoding='euc-kr', index_col=0)
 
@@ -161,9 +157,8 @@ def cocktail_list(request, category):
         cocktail['cocktail_name'] = cocktail[df.columns[1]]  
         cocktail['cocktail_img_url'] = cocktail[df.columns[2]] 
         cocktail['cocktail_index'] = cocktail[df.columns[24]]
-        
 
-    paginator = Paginator(beer_list, 6)  
+    paginator = Paginator(cocktail_list, 6)  
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -171,4 +166,4 @@ def cocktail_list(request, category):
         'category': category,
         'page_obj': page_obj
     }
-    return render(request, 'templates/cocktail_by_category.html', context)
+    return render(request, 'templates/list_cocktail.html', context)

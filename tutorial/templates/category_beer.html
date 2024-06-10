@@ -4,7 +4,7 @@
   <head>
     <link href="{% static 'css/category.css' %}" rel="stylesheet" />
     <link href="{% static 'css/background.css' %}" rel="stylesheet" />
-    <title>Document</title>
+    <title>Category</title>
   </head>
   <body>
     <div class="background"></div>
@@ -16,7 +16,7 @@
         <div class="column">
           <div class="line"></div>
           {% for category in categories %}
-          <p class="list"><a href="{% url 'beer_list' category %}">{{ category }}</a></p>
+          <p class="list"><a href="{% url 'list_beer' category %}">{{ category }}</a></p>
           <div class="line"></div>
           {% endfor %}
       <nav class="nav">
