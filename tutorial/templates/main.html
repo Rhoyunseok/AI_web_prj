@@ -44,37 +44,49 @@
         </p>
       </div>
     </div>
-    
+
     <div class="content">
       <div class="page">
-        <span class="title">Alcoholics</span>
+        <span class="title"><a href="{% url 'home' %}">Alcoholics</a></span>
         <div class="banner"></div>
         <div class="line1"></div>
         <span class="subtitle">주류 카테고리</span>
         <div class="line2"></div>
         <div class="item">
           <div class="categroup">
-            <div class="cateback"></div>
+            <div class="cateback"><a href="{% url 'category_beer'%}">
+              <img src="{% static 'images/c1.png' %}" class="c">
+            </a></div>
             <span class="cate"><a href="{% url 'category_beer'%}">맥주</a></span>
           </div>
           <div class="categroup">
-            <div class="cateback"></div>
+            <div class="cateback"><a href="{% url 'category_cocktail' %}">
+              <img src="{% static 'images/c2.jpg' %}" class="c">
+            </a></div>
             <span class="cate"><a href="{% url 'category_cocktail'%}">칵테일</a></span>
           </div>
           <div class="categroup">
-            <div class="cateback"></div>
+            <div class="cateback"><a href="{% url 'list_custom' %}">
+              <img src="{% static 'images/c3.jpg' %}" class="c">
+            </a></div>
             <span class="cate"><a href="{% url 'list_custom' %}">커스텀 칵테일</a></span>
           </div>
           <div class="categroup">
-            <div class="cateback"></div>
+            <div class="cateback"><a href="{% url 'category_wine' %}">
+              <img src="{% static 'images/c4.png' %}" class="c">
+            </a></div>
             <span class="cate"><a href="{% url 'category_wine' %}">와인</a></span>
           </div>
           <div class="categroup">
-            <div class="cateback"></div>
+            <div class="cateback"><a href="{% url 'category_liquor' %}">
+              <img src="{% static 'images/c5.png' %}" class="c">
+            </a></div>
             <span class="cate"><a href="{% url 'category_liquor' %}">리큐르</a></span>
           </div>
           <div class="categroup">
-            <div class="cateback"></div>
+            <div class="cateback"><a href="{% url 'category_whisky' %}">
+              <img src="{% static 'images/c6.png' %}" class="c">
+            </a></div>
             <span class="cate"><a href="{% url 'category_whisky' %}">위스키</a></span>
           </div>
         </div>
