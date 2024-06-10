@@ -23,7 +23,7 @@
           {% for beer in page_obj %}
           <div class="listgroup">
             <div class="listback"><img src="{{ beer.beer_img_url }}" class="img" alt="{{ beer.beer_name }}" width="100"></div>
-            <span class="list"><a href="#"></a>{{beer.beer_name}}</span>
+            <span class="list"><a href="{% url 'csv_view_pd' beer.beer_index %}">{{ beer.beer_name }}</a></span>
           </div>
           {% if forloop.counter|divisibleby:2 %}
         </div>

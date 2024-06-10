@@ -1,11 +1,13 @@
 # accounts/views.py
 import csv
+import logging
 import pandas as pd
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+logger = logging.getLogger(__name__)
 
 def signup(request):
     if request.method == 'POST':
@@ -54,37 +56,37 @@ def beer_detail(request):
 def test(request):
     return render(request, 'templates/rhotest.html') #dddd
  
-def csv_view(request):
-    data = []
-    beer_name = None
-    beer_description = None
-    beer_img_url = None
-    beer_country = None
-    beer_score = None
-    beer_category = None
+# def csv_view(request):
+#     data = []
+#     beer_name = None
+#     beer_description = None
+#     beer_img_url = None
+#     beer_country = None
+#     beer_score = None
+#     beer_category = None
 
-    file_path = 'alcoholic_app/data/beer.csv'
+#     file_path = 'alcoholic_app/data/beer.csv'
 
-    with open(file_path, newline='') as csvfile:
-        csvreader = csv.reader(csvfile)
-        for i, row in enumerate(csvreader):
-            if i == 2:  # 3번째 행 (0-based 인덱스)
-                beer_name = row[0]
-                beer_country = row[3]
-                beer_description = row[4]
-                beer_img_url = row[1]
-                beer_score = row[5]
-                break  # 필요한 데이터를 얻었으므로 루프를 종료
+#     with open(file_path, newline='') as csvfile:
+#         csvreader = csv.reader(csvfile)
+#         for i, row in enumerate(csvreader):
+#             if i == 2:  # 3번째 행 (0-based 인덱스)
+#                 beer_name = row[0]
+#                 beer_country = row[3]
+#                 beer_description = row[4]
+#                 beer_img_url = row[1]
+#                 beer_score = row[5]
+#                 break  # 필요한 데이터를 얻었으므로 루프를 종료
 
-    specific_data = {
-        'beer_name': beer_name,
-        'beer_country': beer_country,
-        'beer_description': beer_description,
-        'beer_img_url': beer_img_url,
-        'beer_score': beer_score,
-        'beer_category': beer_category
-    }
-    return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
+#     specific_data = {
+#         'beer_name': beer_name,
+#         'beer_country': beer_country,
+#         'beer_description': beer_description,
+#         'beer_img_url': beer_img_url,
+#         'beer_score': beer_score,
+#         'beer_category': beer_category
+#     }
+#     return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
 
 # df = pd.read_csv('alcoholic_app/data/beer2.csv', encoding='euc-kr', index_col=0)
 
@@ -143,29 +145,27 @@ def category_beer(request):
 def beer_list(request, category):
     import pandas as pd
 
-    # Assuming 'alcoholic_app/data/beer2.csv' is your CSV file path
     file_path = 'alcoholic_app/data/beer2.csv'
     df = pd.read_csv(file_path, encoding='euc-kr', index_col=0)
 
-    # Filter and sort beers
     filtered_df = df[df.iloc[:, 11] == category].sort_values(by=df.columns[0])
     beer_list = filtered_df.to_dict(orient='records')
 
-    for beer in beer_list:
-        beer['beer_name'] = beer[df.columns[0]]  # Assuming the first column is beer name
-        beer['beer_img_url'] = beer[df.columns[1]] # Assuming the second column is image URL
+    for i, beer in enumerate(beer_list):
+        beer['beer_name'] = beer[df.columns[0]]  
+        beer['beer_img_url'] = beer[df.columns[1]] 
+        beer['beer_index'] = i
+        logger.debug(f'Beer index: {i}')  # 로그 출력
 
-    # Paginate beer_list
-    paginator = Paginator(beer_list, 6)  # Show 6 beers per page
+    paginator = Paginator(beer_list, 6)  
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     context = {
         'category': category,
-        'page_obj': page_obj  # This will contain the beers for the current page
+        'page_obj': page_obj
     }
     return render(request, 'templates/beers_by_category.html', context)
-
 # def beer_list(request):
 #     # categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
 #     return render(request, 'beer_list.html', {'categories': categories})
