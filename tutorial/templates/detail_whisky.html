@@ -6,20 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{% static 'css/detail.css' %}" rel="stylesheet" />
   <link href="{% static 'css/background.css' %}" rel="stylesheet" />
-  <title>Custom</title>
+  <title>Whisky</title>
 </head>
 <body>
   <div class="background"></div>
   <div class="content">
     <div class="page">
-      <p class="title">{{ specific_data.custom_name }}<br></p>
+      <p class="title">{{ specific_data.whisky_name }}<br></p>
       <div class="imgback">
-        <img src="{{ specific_data.custom_img_url }}" class="img" alt="custom_image" />
+        <img src="{{ specific_data.whisky_img_url }}" class="img" alt="whisky_image" />
       </div>
       <p class="heart">하트 숫자</p>
       <div class="info">
-        <p>Materials: {{ specific_data.custom_materials }}</p>
+        <p>Category: 맥주 > {{ specific_data.whisky_category }} </p>
       </div>
+      <p class="descrip">Description: {{ specific_data.whisky_description }}<br></p>
       <nav class="nav">
         <ul class="navbar">
           <li>홈</li>

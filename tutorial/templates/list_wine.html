@@ -20,7 +20,7 @@
           <span class="subtitle">라거</span>
         </div>
         <div class="item">
-          {% for cocktail in page_obj %}
+          {% for wine in page_obj %}
           <div class="listgroup">
             <div class="listback"><img src="{{ wine.wine_img_url }}" class="img" alt="{{ wine.wine_name }}" width="100"></div>
             <span class="list"><a href="{% url 'csv_view_wine' wine.wine_index %}">{{ wine.wine_name }}</a></span>

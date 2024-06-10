@@ -11,12 +11,12 @@
     <div class="content">
       <div class="page">
         <div class="titleback">
-          <span class="title">커스텀 칵테일</span>
+          <span class="title">리큐르</span>
         </div>
         <div class="column">
           <div class="line"></div>
           {% for category in categories %}
-          <p class="list"><a href="{% url 'list_custom' category %}">{{ category }}</a></p>
+          <p class="list"><a href="{% url 'list_whisky' category %}">{{ category }}</a></p>
           <div class="line"></div>
           {% endfor %}
       <nav class="nav">
