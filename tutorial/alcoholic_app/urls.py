@@ -26,5 +26,5 @@ urlpatterns = [
     path('home/whisky/', category_whisky, name='category_whisky'),
     path('home/whisky/list/<str:category>/', list_whisky, name='list_whisky'),
     path('home/whisky/list/<int:whisky_index>', views.csv_view_whisky, name='csv_view_whisky'),
-    path('search/', search_view, name='search_view'),
+    path('home/search/', search_view, name='search_view'),
 ]

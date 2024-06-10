@@ -43,10 +43,9 @@
         </div>
         <nav class="nav">
           <ul class="navbar">
-            <li>홈</li>
-            <li>술개팅</li>
-            <li>마이페이지</li>
-            <li>
+            <li><a href="{% url 'home' %}">홈</a></li>
+            <li><a href='#'>술개팅</a></li>
+            <li><a href="{% url 'search_view' %}">검색</a></li>
             {% if user.is_authenticated %}
               <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}

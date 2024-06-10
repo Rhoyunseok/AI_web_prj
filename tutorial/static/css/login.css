@@ -19,9 +19,6 @@ body {
   display: flex;
   align-items: center;
 }
-.button {
-  height: 30%;
-}
 .title {
   color: rgba(0,0,0,1);
   font-family: Inter;
