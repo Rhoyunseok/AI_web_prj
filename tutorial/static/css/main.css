@@ -8,6 +8,7 @@
       border: 10px  rgba(115, 69, 8, 1);
 }
 
+
 body {
   padding: 0px;
   margin: 0px;
@@ -249,6 +250,132 @@ margin-top: 10px;
 
 
 /********************************** 호버시 모달********************* */
+
+
+
+/* 카테고리 이미지 */
+
+.v4_30 {
+  width: 41px;
+  height: 49px;
+  background: url("../images/v4_30.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  left: 75px;
+    top: 450px;
+  overflow: hidden;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+
+.v8_15 {
+  width: 55px;
+  height: 48px;
+  background: url("../images/cocktail.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 452px;
+  left: 190px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
+}
+
+
+.v8_19 {
+  width: 52px;
+  height: 48px;
+  background: url("../images/customcocktail.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 452px;
+  left: 310px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
+}
+
+
+.v4_26 {
+  width: 52px;
+  height: 58px;
+  background: url("../images/wine.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 570px;
+  left: 70px;
+  overflow: hidden;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+
+
+.v8_21 {
+  width: 51px;
+  height: 49px;
+  background: url("../images/liquor.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 575px;
+  left: 191px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
+}
+
+
+
+.v8_23 {
+  width: 51px;
+  height: 40px;
+  background: url("../images/whiskey.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 578px;
+  left: 310px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
+}
+
+
+
+
+/* 카테고리 이미지 */
+
+
 
 
 
