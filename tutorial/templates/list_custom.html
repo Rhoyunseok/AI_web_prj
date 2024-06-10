@@ -1,0 +1,61 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="{% static 'css/list.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/background.css' %}" rel="stylesheet" />
+    <title>List</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <div class="page">
+        <div class="titleback">
+          <span class="title">커스텀 칵테일</span>
+        </div>
+        <div class="subtitleback">
+          <span class="subtitle">라거</span>
+          <span class="subtitle">라거</span>
+          <span class="subtitle">라거</span>
+          <span class="subtitle">라거</span>
+        </div>
+        <div class="item">
+          {% for cocktail in page_obj %}
+          <div class="listgroup">
+            <div class="listback"><img src="{{ custom.custom_img_url }}" class="img" alt="{{ custom.custom_name }}" width="100"></div>
+            <span class="list"><a href="{% url 'csv_view_custom' custom.custom_index %}">{{ custom.custom_name }}</a></span>
+          </div>
+          {% if forloop.counter|divisibleby:2 %}
+        </div>
+        <div class="item">
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+          <span class="step-links">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+          </span>
+        </div>
+
+      <nav class="nav">
+        <ul class="navbar">
+          <li>홈</li>
+          <li>술개팅</li>
+          <li>마이페이지</li>
+          <li>로그인</li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>

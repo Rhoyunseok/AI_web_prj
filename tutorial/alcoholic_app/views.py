@@ -45,6 +45,11 @@ def home(request):
 
 def detail_beer(request):
     return render(request, 'templates/detail_beer.html') # ddddddd
+
+def detect_encoding(file_path):
+    with open(file_path, 'rb') as f:
+        result = chardet.detect(f.read())
+    return result['encoding']
  
 
 def csv_view_beer(request, beer_index):
@@ -102,6 +107,56 @@ def csv_view_cocktail(request, cocktail_index):
     
     return render(request, 'templates/detail_cocktail.html', context)
 
+def csv_view_custom(request, custom_index):
+    file_path = 'alcoholic_app/data/custom_cocktail.csv'
+    encoding = detect_encoding(file_path)
+
+    # pandas를 사용하여 CSV 파일을 읽습니다.
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
+    
+    # 특정 맥주 인덱스의 데이터를 가져옵니다.
+    if custom_index < len(df):
+        custom_data = df.iloc[custom_index]
+        context = {
+            'specific_data': {
+                'custom_name': custom_data.iloc[0],
+                'custom_img_url': custom_data.iloc[1],
+                'custom_index': custom_data.iloc[9],
+            }
+        }
+    else:
+        context = {
+            'error': '해당 인덱스의 칵테일을 찾을 수 없습니다.'
+        }
+    
+    return render(request, 'templates/detail_custom.html', context)
+
+
+def category_beer(request):
+    file_path = 'alcoholic_app/data/beer2.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding= encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_beer.html', {'categories': categories})
+
+def category_cocktail(request):
+    file_path = 'alcoholic_app/data/cocktail.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_cocktail.html', {'categories': categories})
+
+def category_custom(request):
+    file_path = 'alcoholic_app/data/custom_cocktail.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 9].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_custom.html', {'categories': categories})
+
+
 def list_beer(request, category):
     file_path = 'alcoholic_app/data/beer2.csv'
     encoding = detect_encoding(file_path)
@@ -126,7 +181,6 @@ def list_beer(request, category):
     }
     return render(request, 'templates/list_beer.html', context)
 
-
 def list_cocktail(request, category):
     file_path = 'alcoholic_app/data/cocktail.csv'
     encoding = detect_encoding(file_path)
@@ -150,27 +204,30 @@ def list_cocktail(request, category):
     }
     return render(request, 'templates/list_cocktail.html', context)
 
-
-def category_beer(request):
-    file_path = 'alcoholic_app/data/beer2.csv'
+def list_custom(request, category):
+    file_path = 'alcoholic_app/data/custom_cocktail.csv'
     encoding = detect_encoding(file_path)
-    df = pd.read_csv(file_path, encoding= encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
 
-    categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
-    return render(request, 'templates/category_beer.html', {'categories': categories})
+    filtered_df = df[df.iloc[:, 11] == category].sort_values(by=df.columns[0])
+    custom_list = filtered_df.to_dict(orient='records')
 
-def category_cocktail(request):
-    file_path = 'alcoholic_app/data/cocktail.csv'
-    encoding = detect_encoding(file_path)
-    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+    for i, custom in enumerate(custom_list):
+        custom['custom_name'] = custom[df.columns[0]]  
+        custom['custom_img_url'] = custom[df.columns[1]] 
+        custom['custom_index'] = custom[df.columns[9]]
+        
 
-    categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
-    return render(request, 'templates/category_cocktail.html', {'categories': categories})
+    paginator = Paginator(custom_list, 6)  
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-def detect_encoding(file_path):
-    with open(file_path, 'rb') as f:
-        result = chardet.detect(f.read())
-    return result['encoding']
+    context = {
+        'category': category,
+        'page_obj': page_obj
+    }
+    return render(request, 'templates/list_custom.html', context)
+
 
 # 검색 기능
 
