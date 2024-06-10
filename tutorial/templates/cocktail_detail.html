@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'css/cocktail_detail.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/background.css' %}" rel="stylesheet" />
+  <title>Cocktail</title>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="content">
+    <div class="page">
+      <p class="title">{{ specific_data.beer_name }}<br></p>
+      <div class="imgback">
+        <img src="{{ specific_data.beer_img_url }}" class="img" alt="beer_image" />
+      </div>
+      <p class="heart">하트 숫자</p>
+      <div class="info">
+        <p>Category: 칵테일 > {{ specific_data.beer_category }} </p>
+        <p>Country: {{ specific_data.beer_country }}<br></p>
+        <p>Score: {{ specific_data.beer_score }}</p>
+        <p>category: {{specific_data.beer_category}}</p>
+      </div>
+      <p class="descrip">Description: {{ specific_data.beer_description }}<br></p>
+      <nav class="nav">
+        <ul class="navbar">
+          <li>홈</li>
+          <li>술개팅</li>
+          <li>마이페이지</li>
+          <li>로그인</li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+</html>
