@@ -412,4 +412,4 @@ def search_view(request):
 # 검색 기능 끝
 
 def register(request):
-    return render(request, 'templates/register.html') #테스트용 ㅋ
+    return render(request, 'templates/navbar.html') #테스트용 ㅋ
