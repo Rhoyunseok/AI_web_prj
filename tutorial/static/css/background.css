@@ -44,3 +44,12 @@
   text-align: center;
   size: 16px;
 }
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+a:visited {
+  text-decoration: none;
+  color: black;
+}

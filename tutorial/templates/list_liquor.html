@@ -22,7 +22,8 @@
         <div class="item">
           {% for liquor in page_obj %}
           <div class="listgroup">
-            <div class="listback"><img src="{% static 'images/peachLiquor.png' %}" class="img" alt="{{ liquor.liquor_name }}" width="100"></div>
+            <div class="listback"><a href="{% url 'csv_view_liquor' liquor.liquor_index %}">
+              <img src="{% static 'images/peachLiquor.png' %}" class="img" alt="{{ liquor.liquor_name }}" width="100"></a></div>
             <span class="list"><a href="{% url 'csv_view_liquor' liquor.liquor_index %}">{{ liquor.liquor_name }}</a></span>
           </div>
           {% if forloop.counter|divisibleby:2 %}
