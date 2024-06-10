@@ -1,5 +1,5 @@
-null,Alcohol,Name,image,Category,Making,Base Wine,Base Wine Amount,Liquor,Liquor Amount,Juice,Juice Amount,Spice,Spice Amount,Soda,Soda Amount,Others,Taste,Type of Glass,Salty,Savory,Sour,Bitter,Sweet,Spicy,index,
-,32,Black Russian,http://www.thecocktaildb.com/images/media/drink/2k5gbb1504367689.jpg,Long,Build,Vodka,40,Coffee,20,-,-,-,-,-,-,-,Mild,Rock,0,0,0,17,50,0,0,Ä¬Å×ÀÏ
+null,Alcohol,name,image,Category,Making,Base Wine,Base Wine Amount,Liquor,Liquor Amount,Juice,Juice Amount,Spice,Spice Amount,Soda,Soda Amount,Others,Taste,Type of Glass,Salty,Savory,Sour,Bitter,Sweet,Spicy,index,
+,32,Black Russian,http://www.thecocktaildb.com/images/media/drink/2k5gbb1504367689.jpg,Long,Build,Vodka,40,Coffee,20,-,-,-,-,-,-,-,Mild,Rock,0,0,0,17,50,0,0,Ä¬ï¿½ï¿½ï¿½ï¿½
 ,12,Bloody Mary,http://www.thecocktaildb.com/images/media/drink/uyquuu1439906954.jpg,Long,Build,Vodka,45,-,-,Tomato,240,-,-,-,-,Lemon Piece/Celery,Strong,Highball,17,17,83,17,17,83,1,
 ,14,Blue Hawaii,https://www.liquor.com/thmb/zq9ZXy-j9SGJVnTj5tu6YydJNRQ=/380x380/filters:max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__07__12101312__Blue-Hawaii-720x720-recipe-1c521445b9394786abe8215118baf734.jpg,Long,Shake,Rum,30,Blue Curacao,15,Pineapple_30/Lemon_15,45,-,-,-,-,Pineapple Piece/Cherry/Mint,Mild,Cognac Ballon,0,0,17,0,17,0,2,
 ,32,Brave Bull,https://images.absolutdrinks.com/drink-images/Raw/Kahlua/145127c8-7046-4947-8770-177ac6f991e9.png?imwidth=360,Long,Build,Tequila,40,Coffee,20,-,-,-,-,-,-,-,Mild,Old Fashioned,0,0,0,0,50,0,3,
@@ -17,7 +17,7 @@ null,Alcohol,Name,image,Category,Making,Base Wine,Base Wine Amount,Liquor,Liquor
 ,34,Godfather,http://www.thecocktaildb.com/images/media/drink/r74uz51504368928.jpg,Long,Build,Whiskey,45,Apricot ,15,-,-,-,-,-,-,-,Mild,Old Fashioned,0,0,0,17,50,0,15,
 ,12,Harvard Cooler,https://www.schweppes.de/cocktail-sync/image-thumb__9518__cocktail-image-recipes-1x1/harvard-cooler.png,Long,Shake,Brandy,45,-,-,Lemon,20,Sugar,5,Soda,200,-,Mild,Highball,17,0,17,0,17,0,16,
 ,17,Havana Beach,"https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/23/29/02/picWdM9JA.jpg",Short,Shake,Rum,30,-,-,Pineapple,30,Sugar,5,-,-,-,Sweet,Martini Glass,0,0,33,0,50,0,17,
-,10,Horse?™s Neck,http://www.thecocktaildb.com/images/media/drink/006k4e1504370092.jpg,Long,Build,Brandy,45,-,-,-,-,-,-,Ginger,200,Lemon Piece,Mild,Old Fashioned,17,17,83,0,17,0,18,
+,10,Horse?ï¿½s Neck,http://www.thecocktaildb.com/images/media/drink/006k4e1504370092.jpg,Long,Build,Brandy,45,-,-,-,-,-,-,Ginger,200,Lemon Piece,Mild,Old Fashioned,17,17,83,0,17,0,18,
 ,17,Imperial Fizz,http://www.thecocktaildb.com/images/media/drink/zj1usl1504884548.jpg,Long,Shake,Whiskey,45,White Rum,15,Lemon,20,Sugar,8,Soda,180,-,Mild,Highball,0,17,33,17,17,0,19,
 ,13,John Collins,http://www.thecocktaildb.com/images/media/drink/u5yaxl1504350270.jpg,Long,Build,Whiskey,45,-,-,Lemon,15,Sugar,8,Soda,210,Lemon Piece/Cherry,Mild,Highball,17,0,17,0,17,0,20,
 ,19,Long Island Ice Tea,http://www.thecocktaildb.com/images/media/drink/wx7hsg1504370510.jpg,Long,Build,Gin,15,Vodka_15/Rum_15/Tequila_15/White Curacao_10,55,Lemon,30,Sugar,5,Cola,40,-,Mild,Highball,0,0,17,0,67,0,21,
