@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="{% static 'css/category.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/background.css' %}" rel="stylesheet" />
+    <title>Category</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <div class="page">
+        <div class="titleback">
+          <span class="title">위스키</span>
+        </div>
+        <div class="column">
+          <div class="line"></div>
+          {% for category in categories %}
+          <p class="list"><a href="{% url 'list_whisky' category %}">{{ category }}</a></p>
+          <div class="line"></div>
+          {% endfor %}
+      <nav class="nav">
+        <ul class="navbar">
+          <li>홈</li>
+          <li>술개팅</li>
+          <li>마이페이지</li>
+          <li>로그인</li>
+        </ul>
+      </nav>
+      </div>
+    </div>
+    <script src="{% static 'js/category.js' %}"></script>
+  </body>
+</html>

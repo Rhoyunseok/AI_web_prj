@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,28 +13,42 @@
         <button type="submit">Search</button>
     </form>
 
-    {% if results %}
-        <h2>Results for "{{ query }}"</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    {% for key in results.0.keys %}
-                        <th>{{ key }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in results %}
-                    <tr>
-                        {% for value in row.values %}
-                            <td>{{ value }}</td>
-                        {% endfor %}
-                    </tr>
+    <div id="results-container">
+        {% if results %}
+    
+            <ul id="results-list">
+
+                {% for result in results %}
+                    {% if result.sex == 1 %}
+                        <li>
+                            <a href="{% url 'csv_view_beer' result.index %}"><img src="{{ result.image }}" class="img" alt="{{ result.name }}" width="100">{{ result.name }}</a>                            
+                        </li>
+                    {% elif result.sex == 2 %}
+                        <li>
+                            <a href="{% url 'csv_view_cocktail' result.index %}"><img src="{{ result.image }}" class="img" alt="{{ result.name }}" width="100">{{ result.name }}</a>
+                        </li>
+                    {% elif result.sex == 3 %}
+                        <li>
+                            <a href="{% url 'csv_view_custom_cocktail' result.index %}"><img src="{{ result.image }}" class="img" alt="{{ result.name }}" width="100">{{ result.name }}</a>
+                        </li>
+                    {% elif result.sex == 4 %}
+                        <li>
+                            <a href="{% url 'csv_view_custom_wine' result.index %}"><img src="{{ result.image }}" class="img" alt="{{ result.name }}" width="100">{{ result.name }}</a>
+                        </li>
+                    {% elif result.sex == 5 %}
+                        <li>
+                            <a href="{% url 'csv_view_liquor' result.index %}"><img src="{% static 'images/peachLiquor.png' %}" class="img" alt="{{ result.name }}" width="100">{{ result.name }}</a>
+                        </li>
+                    {% elif result.sex == 6 %}
+                        <li>
+                            <a href="{% url 'csv_view_whisky' result.index %}"><img src="{{ result.images }}" class="img" alt="{{ result.name }}" width="100">{{ result.name }}</a>
+                        </li>
+                    {% endif %}
                 {% endfor %}
-            </tbody>
-        </table>
-    {% elif query %}
-        <p>No results found for "{{ query }}"</p>
-    {% endif %}
+            </ul>
+        {% elif query %}
+            <p>No results found for "{{ query }}"</p>
+        {% endif %}
+    </div>
 </body>
 </html>

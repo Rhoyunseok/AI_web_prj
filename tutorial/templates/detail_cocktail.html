@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="{% static 'css/detail_cocktail.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/detail.css' %}" rel="stylesheet" />
   <link href="{% static 'css/background.css' %}" rel="stylesheet" />
   <title>Cocktail</title>
 </head>
@@ -12,18 +12,16 @@
   <div class="background"></div>
   <div class="content">
     <div class="page">
-      <p class="title">{{ specific_data.beer_name }}<br></p>
+      <p class="title">{{ specific_data.cocktail_name }}<br></p>
       <div class="imgback">
-        <img src="{{ specific_data.beer_img_url }}" class="img" alt="beer_image" />
+        <img src="{{ specific_data.cocktail_img_url }}" class="img" alt="cocktail_image" />
       </div>
       <p class="heart">하트 숫자</p>
       <div class="info">
-        <p>Category: 칵테일 > {{ specific_data.beer_category }} </p>
-        <p>Country: {{ specific_data.beer_country }}<br></p>
-        <p>Score: {{ specific_data.beer_score }}</p>
-        <p>category: {{specific_data.beer_category}}</p>
+        <p>Category: 칵테일 > {{ specific_data.cocktail_category }} </p>
+        <p>Alcohol: {{ specific_data.cocktail_alcohol }}</p>
+        <p>Taste: {{ specific_data.cocktail_taste }}</p>
       </div>
-      <p class="descrip">Description: {{ specific_data.beer_description }}<br></p>
       <nav class="nav">
         <ul class="navbar">
           <li>홈</li>

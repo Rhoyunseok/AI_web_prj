@@ -43,15 +43,18 @@ def logout(request):
 def home(request):
     return render(request, 'templates/main.html')
 
-def detail_beer(request):
-    return render(request, 'templates/detail_beer.html') # ddddddd
+def detect_encoding(file_path): # 지우지 말것
+    with open(file_path, 'rb') as f:
+        result = chardet.detect(f.read())
+    return result['encoding']
  
 
 def csv_view_beer(request, beer_index):
     file_path = 'alcoholic_app/data/beer2.csv'
+    encoding = detect_encoding(file_path)
     
     # pandas를 사용하여 CSV 파일을 읽습니다.
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
     
     # 특정 맥주 인덱스의 데이터를 가져옵니다.
     if beer_index < len(df):
@@ -76,9 +79,10 @@ def csv_view_beer(request, beer_index):
 
 def csv_view_cocktail(request, cocktail_index):
     file_path = 'alcoholic_app/data/cocktail.csv'
-    
+    encoding = detect_encoding(file_path)
+
     # pandas를 사용하여 CSV 파일을 읽습니다.
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
     
     # 특정 맥주 인덱스의 데이터를 가져옵니다.
     if cocktail_index < len(df):
@@ -90,12 +94,7 @@ def csv_view_cocktail(request, cocktail_index):
                 'cocktail_category': cocktail_data.iloc[5],
                 'cocktail_index': cocktail_data.iloc[24],
                 'cocktail_alcohol': cocktail_data.iloc[0],
-                'cocktail_making': cocktail_data.iloc[4],
-                'cocktail_base_amount': cocktail_data.iloc[6],
-                'cocktail_liquor': cocktail_data.iloc[7],
-                'cocktail_liquor_amout': cocktail_data.iloc[8],
                 'cocktail_taste': cocktail_data.iloc[16],
-                'cocktail_type_glass': cocktail_data.iloc[17],
             }
         }
     else:
@@ -104,6 +103,105 @@ def csv_view_cocktail(request, cocktail_index):
         }
     
     return render(request, 'templates/detail_cocktail.html', context)
+
+def csv_view_custom(request, custom_index):
+    file_path = 'alcoholic_app/data/custom_cocktail.csv'
+    encoding = detect_encoding(file_path)
+
+    # pandas를 사용하여 CSV 파일을 읽습니다.
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
+    
+    # 특정 맥주 인덱스의 데이터를 가져옵니다.
+    if custom_index < len(df):
+        custom_data = df.iloc[custom_index]
+        context = {
+            'specific_data': {
+                'custom_name': custom_data.iloc[0],
+                'custom_img_url': custom_data.iloc[1],
+                'custom_index': custom_data.iloc[9],
+                'custom_materials': custom_data.iloc[8],
+            }
+        }
+    else:
+        context = {
+            'error': '해당 인덱스의 칵테일을 찾을 수 없습니다.'
+        }
+    
+    return render(request, 'templates/detail_custom.html', context)
+
+def csv_view_wine(request, wine_index):
+    file_path = 'alcoholic_app/data/df_wine.csv'
+    encoding = detect_encoding(file_path)
+    
+    # pandas를 사용하여 CSV 파일을 읽습니다.
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
+    
+    # 특정 맥주 인덱스의 데이터를 가져옵니다.
+    if wine_index < len(df):
+        wine_data = df.iloc[wine_index]
+        context = {
+            'specific_data': {
+                'wine_name': wine_data.iloc[0],
+                'wine_img_url': wine_data.iloc[1],
+                'wine_index': wine_data.iloc[19],
+                'wine_category': wine_data.iloc[6],
+            }
+        }
+    else:
+        context = {
+            'error': '해당 인덱스의 맥주를 찾을 수 없습니다.'
+        }
+    
+    return render(request, 'templates/detail_wine.html', context)
+
+def csv_view_liquor(request, liquor_index):
+    file_path = 'alcoholic_app/data/traditional_liquor.csv'
+    encoding = detect_encoding(file_path)
+    
+    # pandas를 사용하여 CSV 파일을 읽습니다.
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
+    
+    # 특정 맥주 인덱스의 데이터를 가져옵니다.
+    if liquor_index < len(df):
+        liquor_data = df.iloc[liquor_index]
+        context = {
+            'specific_data': {
+                'liquor_name': liquor_data.iloc[0],
+                'liquor_index': liquor_data.iloc[12],
+                'liquor_category': liquor_data.iloc[7],
+            }
+        }
+    else:
+        context = {
+            'error': '해당 인덱스의 맥주를 찾을 수 없습니다.'
+        }
+    
+    return render(request, 'templates/detail_liquor.html', context)
+
+def csv_view_whisky(request, whisky_index):
+    file_path = 'alcoholic_app/data/whisky_taste.csv'
+    encoding = detect_encoding(file_path)
+    
+    # pandas를 사용하여 CSV 파일을 읽습니다.
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0)
+    
+    # 특정 맥주 인덱스의 데이터를 가져옵니다.
+    if whisky_index < len(df):
+        whisky_data = df.iloc[whisky_index]
+        context = {
+            'specific_data': {
+                'whisky_name': whisky_data.iloc[0],
+                'whisky_img_url': whisky_data.iloc[22],
+                'whisky_index': whisky_data.iloc[24],
+                'whisky_category': whisky_data.iloc[6],
+            }
+        }
+    else:
+        context = {
+            'error': '해당 인덱스의 맥주를 찾을 수 없습니다.'
+        }
+    
+    return render(request, 'templates/detail_whisky.html', context)
 
 
 def category_beer(request):
@@ -114,13 +212,43 @@ def category_beer(request):
     categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
     return render(request, 'templates/category_beer.html', {'categories': categories})
 
+def category_cocktail(request):
+    file_path = 'alcoholic_app/data/cocktail.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
 
+    categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_cocktail.html', {'categories': categories})
 
+def category_wine(request):
+    file_path = 'alcoholic_app/data/df_wine.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 6].unique()  # iloc[6] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_wine.html', {'categories': categories})
+
+def category_liquor(request):
+    file_path = 'alcoholic_app/data/traditional_liquor.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 7].unique()  # iloc[6] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_liquor.html', {'categories': categories})
+
+def category_whisky(request):
+    file_path = 'alcoholic_app/data/whisky_taste.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 6].unique()  # iloc[6] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_whisky.html', {'categories': categories})
 
 
 def list_beer(request, category):
     file_path = 'alcoholic_app/data/beer2.csv'
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col=0)
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
 
     filtered_df = df[df.iloc[:, 11] == category].sort_values(by=df.columns[0])
     beer_list = filtered_df.to_dict(orient='records')
@@ -141,12 +269,10 @@ def list_beer(request, category):
     }
     return render(request, 'templates/list_beer.html', context)
 
-
-
-
 def list_cocktail(request, category):
     file_path = 'alcoholic_app/data/cocktail.csv'
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col=0)
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
 
     filtered_df = df[df.iloc[:, 5] == category].sort_values(by=df.columns[0])
     cocktail_list = filtered_df.to_dict(orient='records')
@@ -166,20 +292,100 @@ def list_cocktail(request, category):
     }
     return render(request, 'templates/list_cocktail.html', context)
 
-
-def detect_encoding(file_path):
-    with open(file_path, 'rb') as f:
-        result = chardet.detect(f.read())
-    return result['encoding']
-
-def category_cocktail(request):
-    file_path = 'alcoholic_app/data/cocktail.csv'
+def list_custom(request):
+    file_path = 'alcoholic_app/data/custom_cocktail.csv'
     encoding = detect_encoding(file_path)
-    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
 
-    categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
-    return render(request, 'templates/category_cocktail.html', {'categories': categories})
+    custom_list = []
 
+    for i in range(len(df)):
+        custom = {}
+        custom['custom_name'] = df.iloc[i,0]
+        custom['custom_img_url'] = df.iloc[i,1]
+        custom['custom_index'] = df.iloc[i,9]
+        custom_list.append(custom)
+        
+    paginator = Paginator(custom_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj
+    }
+    return render(request, 'templates/list_custom.html', context)
+
+def list_wine(request, category):
+    file_path = 'alcoholic_app/data/df_wine.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
+
+    filtered_df = df[df.iloc[:, 6] == category].sort_values(by=df.columns[0]) # iloc[6] 열의 값이 category = 해당하는 카테고리 데이터만 가져오기
+    wine_list = filtered_df.to_dict(orient='records')
+
+    for i, wine in enumerate(wine_list):
+        wine['wine_name'] = wine[df.columns[0]]
+        wine['wine_img_url'] = wine[df.columns[1]]
+        wine['wine_index'] = wine[df.columns[19]]
+        
+
+    paginator = Paginator(wine_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'category': category,
+        'page_obj': page_obj
+    }
+    return render(request, 'templates/list_wine.html', context)
+
+def list_liquor(request, category):
+    file_path = 'alcoholic_app/data/traditional_liquor.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
+
+    filtered_df = df[df.iloc[:, 7] == category].sort_values(by=df.columns[0])
+    liquor_list = filtered_df.to_dict(orient='records')
+
+    for i, liquor in enumerate(liquor_list):
+        liquor['liquor_name'] = liquor[df.columns[0]]
+        liquor['liquor_img_url'] = liquor[df.columns[1]]
+        liquor['liquor_index'] = liquor[df.columns[12]]
+        
+
+    paginator = Paginator(liquor_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'category': category,
+        'page_obj': page_obj
+    }
+    return render(request, 'templates/list_liquor.html', context)
+
+def list_whisky(request, category):
+    file_path = 'alcoholic_app/data/whisky_taste.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col=0)
+
+    filtered_df = df[df.iloc[:, 6] == category].sort_values(by=df.columns[0])
+    whisky_list = filtered_df.to_dict(orient='records')
+
+    for i, whisky in enumerate(whisky_list):
+        whisky['whisky_name'] = whisky[df.columns[0]]
+        whisky['whisky_img_url'] = whisky[df.columns[22]]
+        whisky['whisky_index'] = whisky[df.columns[24]]
+        
+
+    paginator = Paginator(whisky_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'category': category,
+        'page_obj': page_obj
+    }
+    return render(request, 'templates/list_whisky.html', context)
 
 
 # 검색 기능
@@ -192,15 +398,15 @@ def search_view(request):
         file_paths = [
             'alcoholic_app/data/cocktail.csv',
             'alcoholic_app/data/beer2.csv',
-            # 'alcoholic_app/data/df_wine.csv',
-            # 'alcoholic_app/data/traditional_liquor.csv',
-            # 'alcoholic_app/data/whisky_taste.csv',
-            # 'alcoholic_app/data/custom_cocktail.csv',            
+            'alcoholic_app/data/df_wine.csv',
+            'alcoholic_app/data/traditional_liquor.csv',
+            'alcoholic_app/data/whisky_taste.csv',
+            'alcoholic_app/data/custom_cocktail.csv',
         ]
         df = load_csv_files(file_paths)
-        results = search_by_name(df, query)
+        results = search_by_name(df, query) # 이름으로 검색 query = 검색어 입력 받기
         results = results.to_dict(orient='records')  # 결과를 딕셔너리 리스트로 변환
     
-    return render(request, 'templates/search.html', {'query': query, 'results': results})
+    return render(request, 'templates/search.html', {'query': query, 'results': results}) # 검색 결과를 템플릿에 전달
 
 # 검색 기능 끝

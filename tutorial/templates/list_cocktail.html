@@ -11,7 +11,7 @@
     <div class="content">
       <div class="page">
         <div class="titleback">
-          <span class="title">맥주</span>
+          <span class="title">칵테일</span>
         </div>
         <div class="subtitleback">
           <span class="subtitle">라거</span>
@@ -20,11 +20,11 @@
           <span class="subtitle">라거</span>
         </div>
         <div class="item">
-          {% for beer in page_obj %}
+          {% for cocktail in page_obj %}
           <div class="listgroup">
-            <div class="listback"><a href="{% url 'csv_view_beer' beer.beer_index %}">
-              <img src="{{ beer.beer_img_url }}" class="img" alt="{{ beer.beer_name }}" width="100"></a></div>
-            <span class="list"><a href="{% url 'csv_view_beer' beer.beer_index %}">{{ beer.beer_name }}</a></span>
+            <div class="listback"><a href="{% url 'csv_view_cocktail' cocktail.cocktail_index %}">
+              <img src="{{ cocktail.cocktail_img_url }}" class="img" alt="{{ cocktail.cocktail_name }}" width="100"></a></div>
+            <span class="list"><a href="{% url 'csv_view_cocktail' cocktail.cocktail_index %}">{{ cocktail.cocktail_name }}</a></span>
           </div>
           {% if forloop.counter|divisibleby:2 %}
         </div>

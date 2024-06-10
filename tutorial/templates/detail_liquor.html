@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{% static 'css/detail.css' %}" rel="stylesheet" />
   <link href="{% static 'css/background.css' %}" rel="stylesheet" />
-  <title>Beer</title>
+  <title>Liquor</title>
 </head>
 <body>
   <div class="background"></div>
   <div class="content">
     <div class="page">
-      <p class="title">{{ specific_data.beer_name }}<br></p>
+      <p class="title">{{ specific_data.liquor_name }}<br></p>
       <div class="imgback">
-        <img src="{{ specific_data.beer_img_url }}" class="img" alt="beer_image" />
+        <img src="{% static 'images/peachLiquor.png' %}" class="img" alt="liqour_image" />
       </div>
       <p class="heart">하트 숫자</p>
       <div class="info">
