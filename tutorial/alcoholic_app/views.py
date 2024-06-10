@@ -192,10 +192,10 @@ def search_view(request):
         file_paths = [
             'alcoholic_app/data/cocktail.csv',
             'alcoholic_app/data/beer2.csv',
-            # 'alcoholic_app/data/df_wine.csv',
-            # 'alcoholic_app/data/traditional_liquor.csv',
-            # 'alcoholic_app/data/whisky_taste.csv',
-            # 'alcoholic_app/data/custom_cocktail.csv',            
+            'alcoholic_app/data/df_wine.csv',
+            'alcoholic_app/data/traditional_liquor.csv',
+            'alcoholic_app/data/whisky_taste.csv',
+            'alcoholic_app/data/custom_cocktail.csv',            
         ]
         df = load_csv_files(file_paths)
         results = search_by_name(df, query)
