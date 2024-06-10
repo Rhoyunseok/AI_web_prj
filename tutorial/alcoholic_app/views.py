@@ -1,6 +1,7 @@
 # accounts/views.py
 import logging
 import pandas as pd
+import chardet
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
@@ -107,17 +108,13 @@ def csv_view_cocktail(request, cocktail_index):
 
 def category_beer(request):
     file_path = 'alcoholic_app/data/beer2.csv'
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding= encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
 
     categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
     return render(request, 'templates/category_beer.html', {'categories': categories})
 
-def category_cocktail(request):
-    file_path = 'alcoholic_app/data/cocktail.csv'
-    df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
 
-    categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
-    return render(request, 'templates/category_cocktail.html', {'categories': categories})
 
 
 
@@ -170,6 +167,20 @@ def list_cocktail(request, category):
     return render(request, 'templates/list_cocktail.html', context)
 
 
+def detect_encoding(file_path):
+    with open(file_path, 'rb') as f:
+        result = chardet.detect(f.read())
+    return result['encoding']
+
+def category_cocktail(request):
+    file_path = 'alcoholic_app/data/cocktail.csv'
+    encoding = detect_encoding(file_path)
+    df = pd.read_csv(file_path, encoding=encoding, index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
+
+    categories = df.iloc[:, 5].unique()  # iloc[5] 열의 유일한 카테고리 목록 가져오기
+    return render(request, 'templates/category_cocktail.html', {'categories': categories})
+
+
 
 # 검색 기능
 
@@ -191,3 +202,5 @@ def search_view(request):
         results = results.to_dict(orient='records')  # 결과를 딕셔너리 리스트로 변환
     
     return render(request, 'templates/search.html', {'query': query, 'results': results})
+
+# 검색 기능 끝
