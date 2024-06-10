@@ -44,51 +44,12 @@ def home(request):
 def list(request):
     return render(request, 'templates/list.html')
 
-# def category_beer(request):
-#     return render(request, 'templates/category_beer.html')
-
-# def beer_list(request):
-#     return render(request, 'templates/list_beer.html')
-
 def beer_detail(request):
     return render(request, 'templates/beer_detail.html') # ddddddd
 
 def test(request):
     return render(request, 'templates/rhotest.html') #dddd
  
-# def csv_view(request):
-#     data = []
-#     beer_name = None
-#     beer_description = None
-#     beer_img_url = None
-#     beer_country = None
-#     beer_score = None
-#     beer_category = None
-
-#     file_path = 'alcoholic_app/data/beer.csv'
-
-#     with open(file_path, newline='') as csvfile:
-#         csvreader = csv.reader(csvfile)
-#         for i, row in enumerate(csvreader):
-#             if i == 2:  # 3번째 행 (0-based 인덱스)
-#                 beer_name = row[0]
-#                 beer_country = row[3]
-#                 beer_description = row[4]
-#                 beer_img_url = row[1]
-#                 beer_score = row[5]
-#                 break  # 필요한 데이터를 얻었으므로 루프를 종료
-
-#     specific_data = {
-#         'beer_name': beer_name,
-#         'beer_country': beer_country,
-#         'beer_description': beer_description,
-#         'beer_img_url': beer_img_url,
-#         'beer_score': beer_score,
-#         'beer_category': beer_category
-#     }
-#     return render(request, 'templates/beer_detail.html', {'specific_data': specific_data})
-
-# df = pd.read_csv('alcoholic_app/data/beer2.csv', encoding='euc-kr', index_col=0)
 
 def csv_view_pd(request, beer_index):
     file_path = 'alcoholic_app/data/beer2.csv'
@@ -107,6 +68,7 @@ def csv_view_pd(request, beer_index):
                 'beer_img_url': beer_data.iloc[1],  # 두 번째 열의 데이터를 'beer_img_url'로 사용
                 'beer_score': beer_data.iloc[6],
                 'beer_category': beer_data.iloc[11],
+                'beer_index': beer_data.iloc[12],
             }
         }
     else:
@@ -124,23 +86,6 @@ def category_beer(request):
     categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
     return render(request, 'templates/beer_list_test.html', {'categories': categories})
 
-#plz plz plz
-# def beer_list(request, category):
-#     file_path = 'alcoholic_app/data/beer2.csv'
-#     df = pd.read_csv(file_path, encoding='euc-kr', index_col= 0) # CSV 파일을 읽어 데이터프레임으로 변환
-    
-#     filtered_df = df[df.iloc[:, 11] == category]  # iloc[11] 열에서 선택한 카테고리로 필터링
-#     beer_list = filtered_df.sort_values(by=df.columns[0]).to_dict(orient='records')  # 첫 번째 열로 정렬
-
-
-#     for beer in beer_list:
-#         beer['beer_name'] = beer[df.columns[0]]
-#         beer['beer_img_url'] = beer[df.columns[1]]
-#     context = {
-#         'category': category,
-#         'beer_list': beer_list
-#     }
-#     return render(request, 'templates/beers_by_category.html', context)
 
 def beer_list(request, category):
     import pandas as pd
@@ -154,8 +99,8 @@ def beer_list(request, category):
     for i, beer in enumerate(beer_list):
         beer['beer_name'] = beer[df.columns[0]]  
         beer['beer_img_url'] = beer[df.columns[1]] 
-        beer['beer_index'] = i
-        logger.debug(f'Beer index: {i}')  # 로그 출력
+        beer['beer_index'] = beer[df.columns[12]]
+        
 
     paginator = Paginator(beer_list, 6)  
     page_number = request.GET.get('page')
@@ -166,7 +111,3 @@ def beer_list(request, category):
         'page_obj': page_obj
     }
     return render(request, 'templates/beers_by_category.html', context)
-# def beer_list(request):
-#     # categories = df.iloc[:, 11].unique()  # iloc[11] 열의 유일한 카테고리 목록 가져오기
-#     return render(request, 'beer_list.html', {'categories': categories})
-    
