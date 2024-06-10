@@ -112,8 +112,8 @@
 
         function handleSwipe(direction) {
             const card = cards[currentCard];
-            card.style.transform = `rotate(${direction * 45}deg) translate(${direction * 1000}px, -100px)`;// 약간 위로 이동?
-            card.style.opacity = '30';
+            card.style.transform = `rotate(${direction * 45}deg) translate(${direction * 500}px, -100px)`;// 약간 위로 이동?
+            card.style.opacity = '0';
             setTimeout(() => {
                 card.classList.add('hidden');
                 currentCard = (currentCard + 1) % cards.length;
@@ -135,6 +135,7 @@
             card.addEventListener('mousemove', (e) => {
                 if (!isMouseDown) return;
         
+        
                 const currentX = e.clientX;
                 const diffX = currentX - startX;
         
@@ -142,11 +143,9 @@
                     if (diffX > 0) {
                         feedback.textContent = '❤️';
                         feedback.className = 'feedback heart';
-                        handleSwipe(1);
                     } else {
                         feedback.textContent = '👎';
                         feedback.className = 'feedback dislike';
-                        handleSwipe(-1);
 
                     }
                     feedback.style.display = 'block';
