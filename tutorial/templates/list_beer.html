@@ -2,49 +2,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="{% static 'css/list_beer.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/list.css' %}" rel="stylesheet" />
     <link href="{% static 'css/background.css' %}" rel="stylesheet" />
-    <title>Document</title>
+    <title>List</title>
   </head>
   <body>
     <div class="background"></div>
     <div class="content">
-      <div class="v14_2"></div>
-      <div class="v14_12"></div>
-      <div class="v14_8"></div>
-      <div class="v14_3"></div>
-      <span class="v9_202">국내 맥주</span>
-      <span class="v9_312">전체</span>
-      <span class="v9_316">라거</span>
-      <span class="v9_318">페일 라거</span>
-      <span class="v9_319">헬레스 라거</span>
-      <div class="v9_323"></div>
-      <span class="v9_324">가격</span>
-      <div class="v9_326"></div>
-      <span class="v9_327">가공 형태</span>
-      <div class="v9_331"></div>
-      <span class="v9_332">태그</span>
-      <div class="v14_7"></div>
-      <div class="v14_9"></div>
-      <div class="v14_13"></div>
-      <div class="v14_18"></div>
-      <div class="v14_19"></div>
-      <div class="v14_22"></div>
-      <div class="v14_23"></div>
-      <div class="v14_24"></div>
-      <div class="v14_25"></div>
-      <div class="v14_26"></div>
-      <span class="v14_27">에너진 홍삼쌀맥주</span>
-      <span class="v14_28">우스라이</span>
-      <span class="v14_29">스노이</span>
-      <span class="v126_34">카스 라이트</span>
-      <span class="v126_33">스포라이스</span>
-      <span class="v14_30">UF 싱글몰트 라거</span>
-      <ul class="page">
-        <li><a href="#" class="num">1</a></li>
-        <li><a href="#" class="num">2</a></li>
-        <li><a href="#" class="num">3</a></li>
-      </ul>
+      <div class="page">
+        <div class="titleback">
+          <span class="title">국내 맥주</span>
+        </div>
+        <div class="subtitleback">
+          <span class="subtitle">라거</span>
+          <span class="subtitle">라거</span>
+          <span class="subtitle">라거</span>
+          <span class="subtitle">라거</span>
+        </div>
+        <div class="item">
+          {% for beer in page_obj %}
+          <div class="listgroup">
+            <div class="listback"><img src="{{ beer.beer_img_url }}" class="img" alt="{{ beer.beer_name }}" width="100"></div>
+            <span class="list"><a href="{% url 'csv_view_beer' beer.beer_index %}">{{ beer.beer_name }}</a></span>
+          </div>
+          {% if forloop.counter|divisibleby:2 %}
+        </div>
+        <div class="item">
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+          <span class="step-links">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+          </span>
+        </div>
+
       <nav class="nav">
         <ul class="navbar">
           <li>홈</li>

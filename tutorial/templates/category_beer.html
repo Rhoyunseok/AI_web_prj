@@ -2,37 +2,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <link href="./css/category.css" rel="stylesheet" />
-    <link href="../background.css" rel="stylesheet" /> -->
     <link href="{% static 'css/category.css' %}" rel="stylesheet" />
     <link href="{% static 'css/background.css' %}" rel="stylesheet" />
-    <title>Document</title>
+    <title>Category</title>
   </head>
   <body>
     <div class="background"></div>
     <div class="content">
-      <span class="title">국내 맥주</span>
-      <div class="column">
-        <div class="line"></div>
-        <p class="list">전체 보기</p>
-        <div class="line"></div>
-        <p class="list" onclick="toggleDropdown('lagerDropdown')">
-          라거
-          <span class="arrow"></span>
-        </p>
-        <div class="dropdown" id="lagerDropdown">
-          <div class="dropdown-separator"></div>
-          <p class="list"><a href="{% url 'beer_list' %}">라거</a></p>          
-          <p class="list">페일 라거</p>
-          <p class="list">헬레스 라거</p>
-          <p class="list">엠버 라거</p>
+      <div class="page">
+        <div class="titleback">
+          <span class="title">맥주</span>
         </div>
-        <div class="line"></div>
-        <p class="list">위트에일</p>
-        <div class="line"></div>
-        <p class="list">에일</p>
-        <div class="line"></div>
-      </div>
+        <div class="column">
+          <div class="line"></div>
+          {% for category in categories %}
+          <p class="list"><a href="{% url 'list_beer' category %}">{{ category }}</a></p>
+          <div class="line"></div>
+          {% endfor %}
       <nav class="nav">
         <ul class="navbar">
           <li>홈</li>
@@ -41,8 +27,8 @@
           <li>로그인</li>
         </ul>
       </nav>
+      </div>
     </div>
-    <!-- <script src="{%static 'js/ctegory.js' %}"></script> -->
     <script src="{% static 'js/category.js' %}"></script>
   </body>
 </html>

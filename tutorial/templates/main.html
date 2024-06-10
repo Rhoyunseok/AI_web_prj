@@ -4,51 +4,58 @@
   <head>
     <link href="{% static 'css/main.css' %}" rel="stylesheet" />
     <link href="{% static 'css/background.css' %}" rel="stylesheet" />
-    <title>Document</title>
+    <title>Alcoholics</title>
   </head>
   <body>
     <div class="background"></div>
     <div class="content">
-      <span class="title">Alcoholics</span>
-      <div class="banner"></div>
-      <span class="category">주류 카테고리</span>
-      <div class="v79_28"></div>
-      <div class="v79_29"></div>
-      <div class="v1_25"></div>
-      <div class="v1_28"></div>
-      <div class="v1_29"></div>
-      <div class="v1_30"></div>
-      <div class="v1_35"></div>
-      <div class="v1_31"></div>
-      <div class="v1_32"></div>
-      <span class="v5_3"><a href="{% url 'category_beer'%}">국내 맥주</a></span>
-      <span class="v5_6">위스키</span>
-      <span class="v5_16">소주</span>
-      <span class="v5_15">증류주</span>
-      <span class="v5_14">리큐르</span>
-      <span class="v5_4">수입 맥주</span>
-      <span class="v5_5">와인</span>
-      <div class="v4_26"></div>
-      <div class="v4_30"></div>
-      <div class="v8_15"></div>
-      <div class="v8_19"></div>
-      <div class="v8_21"></div>
-      <div class="v8_23"></div>
-      <div class="v8_30"></div>
-      <nav class="nav">
-        <ul class="navbar">
-          <li>홈</li>
-          <li>술개팅</li>
-          <li>마이페이지</li>
-          <li>
-          {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-          {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-          {% endif %}
-          <!-- </li><a href="{% url 'signup' %}">Sign Up</a></li> -->
-        </ul>
-      </nav>
+      <div class="page">
+        <span class="title">Alcoholics</span>
+        <div class="banner"></div>
+        <div class="line1"></div>
+        <span class="subtitle">주류 카테고리</span>
+        <div class="line2"></div>
+        <div class="item">
+          <div class="categroup">
+            <div class="cateback"></div>
+            <span class="cate"><a href="{% url 'category_beer'%}">맥주</a></span>
+          </div>
+          <div class="categroup">
+            <div class="cateback"></div>
+            <span class="cate"><a href="{% url 'category_cocktail'%}">칵테일</a></span>
+          </div>
+          <div class="categroup">
+            <div class="cateback"></div>
+            <span class="cate">커스텀 칵테일</span>
+          </div>
+          <div class="categroup">
+            <div class="cateback"></div>
+            <span class="cate">와인</span>
+          </div>
+          <div class="categroup">
+            <div class="cateback"></div>
+            <span class="cate">리큐르</span>
+          </div>
+          <div class="categroup">
+            <div class="cateback"></div>
+            <span class="cate">위스키</span>
+          </div>
+        </div>
+        <nav class="nav">
+          <ul class="navbar">
+            <li>홈</li>
+            <li>술개팅</li>
+            <li>마이페이지</li>
+            <li>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+              <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+            <!-- </li><a href="{% url 'signup' %}">Sign Up</a></li> -->
+          </ul>
+        </nav>
+      </div>
     </div>
   </body>
 </html>
