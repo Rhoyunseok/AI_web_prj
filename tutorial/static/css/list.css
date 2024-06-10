@@ -24,13 +24,14 @@ body {
   display: flex;
 }
 .title {
-  width: 116px;
+  width: 100%;
   color: rgba(0,0,0,1);
   font-family: Inter;
   font-weight: Regular;
   font-size: 24px;
   opacity: 1;
   margin: auto;
+  text-align: center;
 }
 .subtitleback {
   width: 430px;
