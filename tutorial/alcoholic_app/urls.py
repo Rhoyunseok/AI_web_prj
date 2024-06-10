@@ -2,6 +2,8 @@
 from django.urls import path
 from .views import *
 from . import views
+from .views import search_view
+
 urlpatterns = [
     path('home/', home, name='home'),
     path('home/signup/', signup, name='signup'),
@@ -13,4 +15,5 @@ urlpatterns = [
     path('home/cocktail/', category_cocktail, name='category_cocktail'),
     path('home/cocktail/<str:category>/', list_cocktail, name='list_cocktail'),
     path('home/cocktail/list/<int:cocktail_index>', views.csv_view_cocktail, name='csv_view_cocktail'),
+     path('search/', search_view, name='search_view'),
 ]
