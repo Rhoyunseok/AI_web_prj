@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+from .csv_utils import load_csv_files, search_by_name
+
 logger = logging.getLogger(__name__)
 
 def signup(request):
@@ -166,3 +168,26 @@ def list_cocktail(request, category):
         'page_obj': page_obj
     }
     return render(request, 'templates/list_cocktail.html', context)
+
+
+
+# 검색 기능
+
+
+def search_view(request):
+    query = request.GET.get('q', '')
+    results = None
+    if query:
+        file_paths = [
+            'alcoholic_app/data/cocktail.csv',
+            'alcoholic_app/data/beer2.csv',
+            # 'alcoholic_app/data/df_wine.csv',
+            # 'alcoholic_app/data/traditional_liquor.csv',
+            # 'alcoholic_app/data/whisky_taste.csv',
+            # 'alcoholic_app/data/custom_cocktail.csv',            
+        ]
+        df = load_csv_files(file_paths)
+        results = search_by_name(df, query)
+        results = results.to_dict(orient='records')  # 결과를 딕셔너리 리스트로 변환
+    
+    return render(request, 'templates/search.html', {'query': query, 'results': results})
