@@ -53,7 +53,7 @@ def beer_detail(request):
 
 def test(request):
     return render(request, 'templates/rhotest.html') #dddd
-
+ 
 def csv_view(request):
     data = []
     beer_name = None
