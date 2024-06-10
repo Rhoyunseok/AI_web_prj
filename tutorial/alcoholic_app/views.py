@@ -263,7 +263,7 @@ def list_wine(request, category):
     encoding = detect_encoding(file_path)
     df = pd.read_csv(file_path, encoding=encoding, index_col=0)
 
-    filtered_df = df[df.iloc[:, 6] == category].sort_values(by=df.columns[0])
+    filtered_df = df[df.iloc[:, 6] == category].sort_values(by=df.columns[0]) # iloc[6] 열의 값이 category = 해당하는 카테고리 데이터만 가져오기
     wine_list = filtered_df.to_dict(orient='records')
 
     for i, wine in enumerate(wine_list):
@@ -296,12 +296,12 @@ def search_view(request):
             'alcoholic_app/data/df_wine.csv',
             'alcoholic_app/data/traditional_liquor.csv',
             'alcoholic_app/data/whisky_taste.csv',
-            'alcoholic_app/data/custom_cocktail.csv',            
+            'alcoholic_app/data/custom_cocktail.csv',
         ]
         df = load_csv_files(file_paths)
-        results = search_by_name(df, query)
+        results = search_by_name(df, query) # 이름으로 검색 query = 검색어 입력 받기
         results = results.to_dict(orient='records')  # 결과를 딕셔너리 리스트로 변환
     
-    return render(request, 'templates/search.html', {'query': query, 'results': results})
+    return render(request, 'templates/search.html', {'query': query, 'results': results}) # 검색 결과를 템플릿에 전달
 
 # 검색 기능 끝

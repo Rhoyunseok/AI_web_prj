@@ -12,28 +12,18 @@
         <button type="submit">Search</button>
     </form>
 
-    {% if results %}
-        <h2>Results for "{{ query }}"</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    {% for key in results.0.keys %}
-                        <th>{{ key }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in results %}
-                    <tr>
-                        {% for value in row.values %}
-                            <td>{{ value }}</td>
-                        {% endfor %}
-                    </tr>
+    <div id="results-container">
+        {% if results %}
+    
+            <ul id="results-list">
+                {% for beer in results %}
+                <a href="{% url 'csv_view_beer' beer.index %}">111</a>
+                    <li> <strong> <img src="{{ beer.image }}" class="img" alt="{{ wine.wine_name }}" width="100"> {{ beer.index }} {{beer.name}} {{beer.description}}</strong> - </li>
                 {% endfor %}
-            </tbody>
-        </table>
-    {% elif query %}
-        <p>No results found for "{{ query }}"</p>
-    {% endif %}
+            </ul>
+        {% elif query %}
+            <p>No results found for "{{ query }}"</p>
+        {% endif %}
+    </div>
 </body>
 </html>
