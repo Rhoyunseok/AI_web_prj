@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swipe Feature</title>
+    <style>
+        /* 기본 스타일 설정: 페이지를 가운데 정렬하고 배경색을 설정합니다. */
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        /* 컨테이너 스타일: 중앙에 사진을 포함하는 카드 크기를 설정합니다. */
+        .container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+        }
+
+        /* 카드 스타일: 흰색 배경에 그림자와 둥근 모서리를 추가합니다. */
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* 이미지 스타일: 카드 내부에서 이미지를 표시합니다. */
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* 피드백 스타일: 화면 중앙에 큰 텍스트로 표시합니다. */
+        .feedback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 3rem;
+            display: none;
+            pointer-events: none;
+            transition: transform 0.3s ease;
+        }
+
+        /* 좋아요 (하트) 피드백 스타일: 빨간색 텍스트로 설정합니다. */
+        .feedback.heart {
+            color: red;
+        }
+
+        /* 싫어요 피드백 스타일: 파란색 텍스트로 설정합니다. */
+        .feedback.dislike {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="" alt="Swipe Image" class="image">
+        </div>
+        <div class="card hidden">
+            <img src="" alt="Swipe Image" class="image">
+        </div>
+        <div id="feedback" class="feedback"></div>
+    </div>
+    <script>
+        // 이미지 URL 목록
+        const imageUrls = [
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167827.png?452747',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167826.png?924737',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167791.png?353710',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167789.png?952444',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167788.png?467248',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167787.png?165736',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167786.png?128758',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167785.png?111864',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167784.png?826133',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167783.png?642854',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167782.png?795622',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167781.png?407057',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167780.png?369168',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167779.png?367355',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167778.png?823770',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167777.png?418328',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167776.png?009974',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167753.png?006417',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167752.png?548106',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167751.png?993915',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167750.png?558933',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167749.png?038954',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167737.png?304774',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167733.png?225024',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167730.png?256710',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167728.png?848185',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167727.png?275247',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167723.png?273817',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167722.png?947608',
+            'http://img.wine21.com/WINE_MST/TITLE/0167000/W0167721.png?363945'
+        ];
+
+        // 추가 이미지 URL을 여기에 추가할 수 있습니다.
+
+
+        const cards = document.querySelectorAll('.card');
+        const feedback = document.getElementById('feedback');
+        let currentCard = 0;//화면에 표시되는 카드의 인덱스
+        let currentImageIndex = 0;// 이미지 배열의 인덱스
+        let startX = 0;
+        let isMouseDown = false;
+
+        // 초기 이미지 로드
+        function loadNextImage(cardIndex) {
+            const imgElement = cards[cardIndex].querySelector('img');
+            imgElement.src = imageUrls[currentImageIndex];
+            currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+        }
+
+        // 첫 번째 이미지 로드
+        loadNextImage(0);
+        loadNextImage(1);
+
+        function handleSwipe(direction) {
+            const card = cards[currentCard];
+            card.style.transform = `translateX(${direction * 100}%) rotate(${direction * 30}deg)`;
+            card.style.opacity = '0';
+            setTimeout(() => {
+                card.classList.add('hidden');
+                currentCard = (currentCard + 1) % cards.length;
+                const nextCard = cards[currentCard];
+                nextCard.style.transform = 'none';
+                nextCard.style.opacity = '1';
+                nextCard.classList.remove('hidden');
+                feedback.style.display = 'none';
+                loadNextImage(currentCard);  // Load new image
+            }, 500);
+        }
+
+        function handleStart(event) {
+            startX = event.clientX || event.touches[0].clientX;
+            isMouseDown = true;
+        }
+
+        function handleMove(event) {
+            if (!isMouseDown) return;
+            const currentX = event.clientX || event.touches[0].clientX;
+            const diffX = currentX - startX;
+
+            if (Math.abs(diffX) > 20) {
+                feedback.style.display = 'block';
+                feedback.style.transform = 'translate(-50%, -50%) scale(1)';
+                if (diffX > 0) {
+                    feedback.textContent = '❤️';
+                    feedback.className = 'feedback heart';
+                } else {
+                    feedback.textContent = '👎';
+                    feedback.className = 'feedback dislike';
+                }
+            } else {
+                feedback.style.transform = 'translate(-50%, -50%) scale(0)';
+            }
+        }
+
+        function handleEnd(event) {
+            if (!isMouseDown) return;
+            isMouseDown = false;
+            const endX = event.clientX || (event.changedTouches && event.changedTouches[0].clientX);
+            const diffX = endX - startX;
+
+            if (Math.abs(diffX) > 50) {
+                handleSwipe(diffX > 0 ? 1 : -1);
+            } else {
+                feedback.style.transform = 'translate(-50%, -50%) scale(0)';
+            }
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('mousedown', handleStart);
+            card.addEventListener('mousemove', handleMove);
+            card.addEventListener('mouseup', handleEnd);
+            card.addEventListener('mouseleave', () => {
+                isMouseDown = false;
+                feedback.style.transform = 'translate(-50%, -50%) scale(0)';
+            });
+            card.addEventListener('touchstart', handleStart);
+            card.addEventListener('touchmove', handleMove);
+            card.addEventListener('touchend', handleEnd);
+        });
+    </script>
+</body>
+
+</html>
