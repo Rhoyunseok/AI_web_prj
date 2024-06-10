@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include('alcoholic_app.urls')),
     path('main/', include('alcoholic_app.urls')),
-    path('test_app/', include('test_app.urls')),  # test_app 앱의 urls.py를 포함
+   # path('test_app/', include('test_app.urls')),  # test_app 앱의 urls.py를 포함
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
