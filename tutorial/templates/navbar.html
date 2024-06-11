@@ -7,9 +7,9 @@
       <li><a href="{% url 'swap' %}">술개팅</a></li>
       <li><a href="{% url 'search_view' %}">검색</a></li>
       {% if user.is_authenticated %}
-        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="{% url 'logout' %}">로그아웃</a></li>
       {% else %}
-        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'login' %}">로그인</a></li>
       {% endif %}
     </ul>
   </nav>
