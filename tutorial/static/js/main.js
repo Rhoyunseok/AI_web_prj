@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const category = document.querySelectorAll('.categroup');
+  const div = document.querySelectorAll('.categroup');
   
-  category.forEach(function(categroup) {
-    categroup.addEventListener('mouseover', function() {
-      categroup.style.transform = 'scale(1.2)';
+  div.forEach(function(d) {
+    d.addEventListener('mouseover', function() {
+      d.style.transform = 'scale(1.2)';
     });
       
-    categroup.addEventListener('mouseout', function() {
-      categroup.style.transform = 'scale(1)';
+    d.addEventListener('mouseout', function() {
+      d.style.transform = 'scale(1)';
     });
   });
 });
