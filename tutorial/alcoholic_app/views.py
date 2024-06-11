@@ -145,6 +145,10 @@ def csv_view_wine(request, wine_index):
                 'wine_img_url': wine_data.iloc[1],
                 'wine_index': wine_data.iloc[19],
                 'wine_category': wine_data.iloc[6],
+                'wine_country': wine_data.iloc[3],
+                'wine_alcohol': wine_data.iloc[8],
+                'wine_sweetness': wine_data.iloc[9],
+                'wine_food': wine_data.iloc[13],
             }
         }
     else:
