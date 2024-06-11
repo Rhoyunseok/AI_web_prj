@@ -201,7 +201,11 @@ def csv_view_whisky(request, whisky_index):
                 'whisky_img_url': whisky_data.iloc[22],
                 'whisky_index': whisky_data.iloc[24],
                 'whisky_category': whisky_data.iloc[6],
+                'whisky_sweetness': whisky_data.iloc[9],
+                'whisky_crit' : whisky_data.iloc[1],
+                'whisky_body' : whisky_data.iloc[8],
             }
+
         }
     else:
         context = {
