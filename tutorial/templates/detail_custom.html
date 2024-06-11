@@ -20,15 +20,11 @@
       <div class="info">
         <p>Materials: {{ specific_data.custom_materials }}</p>
       </div>
-      <nav class="nav">
-        <ul class="navbar">
-          <li>홈</li>
-          <li>술개팅</li>
-          <li>마이페이지</li>
-          <li>로그인</li>
-        </ul>
-      </nav>
+      <div id="map"></div>
+      {% include 'navbar.html' %}
     </div>
   </div>
+
+  <script src="{% static 'js/map_cocktail.js' %}"></script>
 </body>
 </html>

@@ -90,18 +90,7 @@
             <span class="cate"><a href="{% url 'category_whisky' %}">위스키</a></span>
           </div>
         </div>
-        <nav class="nav">
-          <ul class="navbar">
-            <li><a href="{% url 'home' %}">홈</a></li>
-            <li><a href='#'>술개팅</a></li>
-            <li><a href="{% url 'search_view' %}">검색</a></li>
-            {% if user.is_authenticated %}
-              <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-              <li><a href="{% url 'login' %}">Login</a></li>
-            {% endif %}
-          </ul>
-        </nav>
+        {% include 'navbar.html' %}
 
         <img class="img1" src="{% static 'images/rowan1.png' %}" height="150" >
         <br>

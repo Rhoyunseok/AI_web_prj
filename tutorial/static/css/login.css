@@ -1,9 +1,6 @@
 * {
   box-sizing: border-box;
 }
-body {
-  font-size: 14px;
-}
 .page {
   height: 900px;
 }
@@ -32,7 +29,7 @@ body {
 }
 .wrapper {
   width: 290px;
-  height: 300px;
+  height: 330px;
   background: rgb(249, 242, 233);
   opacity: 1;
   position: absolute;

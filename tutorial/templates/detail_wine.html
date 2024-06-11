@@ -21,17 +21,10 @@
         <p>Category: 와인 > {{ specific_data.wine_category }} </p>
       </div>
       <div id="map"></div>
-      <nav class="nav">
-        <ul class="navbar">
-          <li>홈</li>
-          <li>술개팅</li>
-          <li>마이페이지</li>
-          <li>로그인</li>
-        </ul>
-      </nav>
+      {% include 'navbar.html' %}
     </div>
   </div>
 
-  <script src="{% static 'js/map.js' %}"></script>
+  <script src="{% static 'js/map_wine.js' %}"></script>
 </body>
 </html>

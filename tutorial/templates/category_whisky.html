@@ -19,14 +19,7 @@
           <p class="list"><a href="{% url 'list_whisky' category %}">{{ category }}</a></p>
           <div class="line"></div>
           {% endfor %}
-      <nav class="nav">
-        <ul class="navbar">
-          <li>홈</li>
-          <li>술개팅</li>
-          <li>마이페이지</li>
-          <li>로그인</li>
-        </ul>
-      </nav>
+          {% include 'navbar.html' %}
       </div>
     </div>
     <script src="{% static 'js/category.js' %}"></script>
