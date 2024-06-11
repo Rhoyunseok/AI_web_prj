@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', function() {
   var mapFrame = document.createElement('iframe');
   mapFrame.src = '/map/whiskeymap/whiskeymap.html';
   mapFrame.width = '400';
-  mapFrame.height = '300';
+  mapFrame.height = '420';
   mapFrame.frameborder = '0';
   mapFrame.style.border = '0';
   mapFrame.allowfullscreen = true;
