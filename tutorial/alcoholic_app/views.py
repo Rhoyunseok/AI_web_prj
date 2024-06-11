@@ -413,3 +413,6 @@ def search_view(request):
 
 def register(request):
     return render(request, 'templates/navbar.html') #테스트용 ㅋ
+
+def swap(request):
+    return render(request, 'swap/swap.html')
