@@ -1,17 +1,11 @@
 * {
   box-sizing: border-box;
 }
-body {
-  font-size: 14px;
-}
 .page {
   height: 950px;
 }
 * {
   box-sizing: border-box;
-}
-body {
-  font-size: 14px;
 }
 .titleback {
   width: 430px;
