@@ -1,0 +1,25 @@
+<!-- templates/image_ranking.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Ranking</title>
+</head>
+<body>
+    <h1>Image Ranking</h1>
+
+    {% for image in images %}
+    <div>
+        <h2>{{ image.title }}</h2>
+        <img src="{{ image.image_url }}" alt="{{ image.title }}">
+        <p>Likes: {{ image.likes }}</p>
+        <form action="{% url 'like_image' image.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Like</button>
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>
