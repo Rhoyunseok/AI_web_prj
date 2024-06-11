@@ -71,6 +71,8 @@ TEMPLATES = [
     },
 ]
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 WSGI_APPLICATION = 'alcoholic.wsgi.application'
 
 
