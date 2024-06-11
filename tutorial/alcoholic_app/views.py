@@ -257,6 +257,7 @@ def list_beer(request, category):
         beer['beer_name'] = beer[df.columns[0]]  
         beer['beer_img_url'] = beer[df.columns[1]] 
         beer['beer_index'] = beer[df.columns[12]]
+        beer['beer_category'] = beer[df.columns[11]]
         
 
     paginator = Paginator(beer_list, 6)  
