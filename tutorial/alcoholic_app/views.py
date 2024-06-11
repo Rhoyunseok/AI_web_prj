@@ -173,6 +173,9 @@ def csv_view_liquor(request, liquor_index):
                 'liquor_name': liquor_data.iloc[0],
                 'liquor_index': liquor_data.iloc[12],
                 'liquor_category': liquor_data.iloc[7],
+                'liquor_price' : liquor_data.iloc[9],
+                'liquor_ing' : liquor_data.iloc[11],
+                'liquor_alcohol' : liquor_data.iloc[5],
             }
         }
     else:
