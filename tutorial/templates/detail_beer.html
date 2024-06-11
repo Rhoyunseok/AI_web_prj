@@ -16,13 +16,12 @@
       <div class="imgback">
         <img src="{{ specific_data.beer_img_url }}" class="img" alt="beer_image" />
       </div>
-      <p class="heart">하트 숫자</p>
       <div class="info">
-        <p>Category: 맥주 > {{ specific_data.beer_category }} </p>
-        <p>Country: {{ specific_data.beer_country }}<br></p>
-        <p>Score: {{ specific_data.beer_score }}</p>
+        <p>카테고리: 맥주 > {{ specific_data.beer_category }} </p>
+        <p>생산지: {{ specific_data.beer_country }}<br></p>
+        <p>평점: {{ specific_data.beer_score|floatformat:2 }}</p>
+        <p>설명: {{ specific_data.beer_description }}<br></p>
       </div>
-      <p class="descrip">Description: {{ specific_data.beer_description }}<br></p>
       <div id="map"></div>
       {% include 'navbar.html' %}
     </div>

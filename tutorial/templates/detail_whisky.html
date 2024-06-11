@@ -16,11 +16,12 @@
       <div class="imgback">
         <img src="{{ specific_data.whisky_img_url }}" class="img" alt="whisky_image" />
       </div>
-      <p class="heart">하트 숫자</p>
       <div class="info">
-        <p>Category: 맥주 > {{ specific_data.whisky_category }} </p>
+        <p>카테고리: 위스키 > {{ specific_data.whisky_category }} </p>
+        <p>당도: {{ specific_data.whisky_sweetness|floatformat:2}} </p>
+        <p>평점: {{ specific_data.whisky_crit }} </p>
+        <p>바디감: {{ specific_data.whisky_body|floatformat:2}} </p>
       </div>
-      <p class="descrip">Description: {{ specific_data.whisky_description }}<br></p>
       <div id="map"></div>
       {% include 'navbar.html' %}
     </div>

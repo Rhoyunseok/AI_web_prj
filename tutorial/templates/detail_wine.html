@@ -16,9 +16,12 @@
       <div class="imgback">
         <img src="{{ specific_data.wine_img_url }}" class="img" alt="wine_image" />
       </div>
-      <p class="heart">하트 숫자</p>
       <div class="info">
-        <p>Category: 와인 > {{ specific_data.wine_category }} </p>
+        <p>카테고리: 와인 > {{ specific_data.wine_category }} </p>
+        <p>생산지: {{ specific_data.wine_country }}</p>
+        <p>알코올: {{ specific_data.wine_alcohol }}%</p>
+        <p>당도: {{ specific_data.wine_sweetness }} </p>
+        <p>안주: {{ specific_data.wine_food }} </p>
       </div>
       <div id="map"></div>
       {% include 'navbar.html' %}

@@ -16,11 +16,10 @@
       <div class="imgback">
         <img src="{{ specific_data.cocktail_img_url }}" class="img" alt="cocktail_image" />
       </div>
-      <p class="heart">하트 숫자</p>
       <div class="info">
-        <p>Category: 칵테일 > {{ specific_data.cocktail_category }} </p>
-        <p>Alcohol: {{ specific_data.cocktail_alcohol }}</p>
-        <p>Taste: {{ specific_data.cocktail_taste }}</p>
+        <p>카테고리: 칵테일 > {{ specific_data.cocktail_category }} </p>
+        <p>알코올: {{ specific_data.cocktail_alcohol }}%</p>
+        <p>향: {{ specific_data.cocktail_taste }}</p>
       </div>
       <div id="map"></div>
       {% include 'navbar.html' %}

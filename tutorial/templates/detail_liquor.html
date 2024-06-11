@@ -16,13 +16,12 @@
       <div class="imgback">
         <img src="{% static 'images/peachLiquor.png' %}" class="img" alt="liqour_image" />
       </div>
-      <p class="heart">하트 숫자</p>
       <div class="info">
-        <p>Category: 맥주 > {{ specific_data.beer_category }} </p>
-        <p>Country: {{ specific_data.beer_country }}<br></p>
-        <p>Score: {{ specific_data.beer_score }}</p>
+        <p>카테고리: 리큐르 > {{ specific_data.liquor_category }} </p>
+        <p>가격: {{ specific_data.liquor_price }}원</p>
+        <p>재료: {{ specific_data.liquor_ing }} </p>
+        <p>알코올: {{ specific_data.liquor_alcohol }}%</p>
       </div>
-      <p class="descrip">Description: {{ specific_data.beer_description }}<br></p>
       <div id="map"></div>
       {% include 'navbar.html' %}
     </div>
